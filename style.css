@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 300px 10px 300px;
+  height: 60px;
+  width: 100%;
+  background-color: rgb(0, 0, 18);
+}
+header button {
+  color: white;
+  background-color: rgb(0, 0, 18);
+  border: none;
+  font-weight: bold;
+}
+
+.intro {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+.intro img {
+  width: 100%;
+  max-height: 400px;
+  z-index: -1;
+}
+.self-intro {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  height: 400px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.782);
+  z-index: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.self-intro p {
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+}
+.hello {
+  /* padding: 0px 30% 5px 25%; */
+}
+.ndanyuzwe {
+  background: linear-gradient(
+    to right,
+    purple 25%,
+    purple 40%,
+    red 60%,
+    red 20%
+  );
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 45px !important;
+}
+
+.dedicated {
+  margin-top: 130px;
+}
+.download-cv button {
+  margin-top: 50px;
+  padding: 5px;
+  color: white;
+  background: linear-gradient(45deg, rgb(101, 2, 101), rgb(245, 43, 43));
+  border: none;
+  font-weight: bold;
+}
