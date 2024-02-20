@@ -210,9 +210,13 @@ header button {
   justify-content: center;
   align-items: center;
   margin-top: 40px;
-  margin-bottom: 40px;
 }
 .our-services-title {
   font-size: 40px;
   color: rgb(3, 3, 61);
+}
+.ourservices-container {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 60px 40px 60px;
 }
