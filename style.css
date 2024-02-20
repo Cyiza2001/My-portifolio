@@ -84,3 +84,95 @@ header button {
   border: none;
   font-weight: bold;
 }
+
+.section2-upper {
+  display: flex;
+  flex-direction: row;
+}
+.section2-left {
+  flex: 1;
+  text-align: right;
+  margin: 50px 20px 40px 60px;
+}
+.my-names {
+  color: rgb(6, 6, 50);
+  font-weight: bolder;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.my-career {
+  color: rgb(87, 13, 87);
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+.more-about-me {
+  text-align: justify;
+  font-size: 14px;
+}
+.section2-middle {
+  display: flex;
+  width: 180px;
+  justify-content: center;
+}
+.section2-middle img {
+  height: 200px;
+
+  padding-top: 0;
+}
+.section2-right {
+  flex: 1;
+  margin: 50px 60px 50px 20px;
+}
+
+.progress-bar-html {
+  margin-top: 5px;
+  width: 100%;
+  background-color: rgb(245, 43, 43);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-html {
+  width: 96%;
+  height: 10px;
+  background-color: rgb(101, 2, 101);
+}
+.progress-bar-react {
+  margin-top: 5px;
+  width: 100%;
+  background-color: rgb(245, 43, 43);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-react {
+  width: 65%;
+  height: 10px;
+  background-color: rgb(101, 2, 101);
+}
+.progress-bar-node {
+  margin-top: 5px;
+  width: 100%;
+  background-color: rgb(245, 43, 43);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-node {
+  width: 86%;
+  height: 10px;
+  background-color: rgb(101, 2, 101);
+}
+.progress-bar-database {
+  margin-top: 5px;
+  width: 100%;
+  background-color: rgb(245, 43, 43);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-database {
+  width: 82%;
+  height: 10px;
+  background-color: rgb(101, 2, 101);
+}
