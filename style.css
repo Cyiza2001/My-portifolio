@@ -26,6 +26,13 @@ header button {
   border: none;
   font-weight: bold;
 }
+header button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(0, 0, 18);
+  height: 25px;
+  padding: 5px;
+}
 
 .intro {
   width: 100%;
@@ -306,6 +313,7 @@ header button {
 }
 .testimonials-container-right img {
   border-radius: 50%;
+  height: 60px;
   border-style: solid;
   border-color: white;
   border-width: 6px;
@@ -313,13 +321,20 @@ header button {
 .testimonials-container-giver {
   display: flex;
   flex-direction: column;
+
   padding-left: 18px;
+  justify-content: space-between;
 }
 .testimony-giver {
-  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  width: auto;
   color: white;
 }
 .testimony-giver-profession {
   color: rgb(87, 13, 87);
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  width: auto;
 }
