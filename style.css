@@ -10,6 +10,7 @@
   height: 100%;
   width: 100%;
 }
+
 header {
   display: flex;
   flex-direction: row;
@@ -26,22 +27,6 @@ header button {
   background-color: rgb(0, 0, 18);
   border: none;
   font-weight: bold;
-}
-@media only screen and (max-width: 412px) {
-  header {
-    flex-wrap: wrap;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 50px;
-    background-color: red;
-    z-index: 5;
-  }
-  header button {
-    flex: 0 0 100%;
-    margin: 10px 5px;
-  }
 }
 
 header button:hover {
@@ -214,7 +199,6 @@ a {
 .section2-lower-left {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
 }
 .section2-lower-image {
   border-radius: 50%;
@@ -360,4 +344,37 @@ a {
   white-space: nowrap;
   overflow: hidden;
   width: auto;
+}
+
+@media only screen and (max-width: 414px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+  .section2-upper {
+    display: flex;
+    flex-direction: column;
+  }
+  .section2-middle {
+    display: none;
+  }
+  .section2-right {
+    padding-top: 0;
+    padding-left: 50px;
+    margin-top: 0;
+  }
+  .section2-lower {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 65px;
+    height: 200px;
+    width: 100%;
+    /* overflow: hidden; */
+  }
+  .section2-lower-image {
+    flex-shrink: 0;
+  }
 }
