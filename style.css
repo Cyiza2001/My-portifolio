@@ -21,6 +21,9 @@ header {
   width: 100%;
   background-color: rgb(0, 0, 18);
 }
+header img {
+  display: none;
+}
 
 header button {
   color: white;
@@ -351,6 +354,12 @@ a {
     display: flex;
     flex-direction: column;
   }
+  header button {
+    display: none;
+  }
+  header img {
+    display: block;
+  }
   .section2-upper {
     display: flex;
     flex-direction: column;
@@ -372,7 +381,6 @@ a {
     padding-left: 65px;
     height: 200px;
     width: 100%;
-    /* overflow: hidden; */
   }
   .section2-lower-image {
     flex-shrink: 0;
