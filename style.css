@@ -28,11 +28,16 @@ header img {
 header button {
   color: white;
   background-color: rgb(0, 0, 18);
-  border: none;
   font-weight: bold;
+  border: none;
+}
+header a {
+  color: white;
+  background-color: rgb(0, 0, 18);
+  text-decoration: none;
 }
 
-header button:hover {
+header a:hover {
   cursor: pointer;
   background-color: white;
   color: rgb(0, 0, 18);
@@ -44,11 +49,13 @@ header button:hover {
   width: 100%;
   height: 400px;
   position: relative;
+  background-image: url("js-image.jpg");
+  z-index: -1;
 }
 .intro img {
   width: 100%;
   max-height: 400px;
-  z-index: -1;
+  /* z-index: -1; */
 }
 .self-intro {
   position: absolute;
@@ -95,7 +102,7 @@ header button:hover {
   border: none;
   font-weight: bold;
 }
-a {
+.my-cv {
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -348,18 +355,46 @@ a {
   overflow: hidden;
   width: auto;
 }
+/* .hidden {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 300px;
+} */
 
 @media only screen and (max-width: 414px) {
   header {
+    /* display: flex;
+    flex-direction: row;
+    max-width: 414px;
+    padding: 2px 10px;
+    opacity: 1; */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(165, 9, 9);
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding: 100px 10px 100px 10px;
+    z-index: 1000px;
   }
-  header button {
+  /* header a {
     display: none;
+  } */
+  .menu-img {
+    /* display: block; */
+    height: 50px;
+    position: absolute;
   }
-  header img {
-    display: block;
+
+  .intro {
+    z-index: ;
   }
+
   .section2-upper {
     display: flex;
     flex-direction: column;
