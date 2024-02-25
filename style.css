@@ -47,20 +47,16 @@ header a:hover {
   height: 400px;
   position: relative;
   background-image: url("js-image.jpg");
-  z-index: -1;
 }
-.intro img {
-  width: 100%;
-  max-height: 400px;
-}
+
 .self-intro {
   position: absolute;
   right: 0;
   left: 0;
   top: 0;
-  height: 400px;
+  height: 100px;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.782);
+  background-color: rgba(0, 0, 0, 0.553);
   z-index: 1;
   padding: 20px;
   text-align: center;
@@ -362,7 +358,7 @@ header a:hover {
 @media only screen and (max-width: 414px) {
   header {
     position: fixed;
-    left: -300px;
+    left: 0;
     top: 0;
     width: 300px;
     height: 100vh;
@@ -375,6 +371,7 @@ header a:hover {
     color: white;
     font-weight: bold;
     font-size: 50px;
+    opacity: 0;
   }
   header button {
     width: 100%;
@@ -390,24 +387,14 @@ header a:hover {
     background-color: rgba(175, 174, 174, 0.515);
     color: white;
   }
-  .menu-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 400px;
-    height: 50px;
-    z-index: 3;
-  }
+  .menu-img,
   .cross-img {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 5px;
+
     height: 50px;
     z-index: 3;
-    display: none;
-  }
-  .intro {
-    position: relative;
   }
 
   .section2-upper {

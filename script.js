@@ -7,10 +7,10 @@ const header = document.querySelector("header");
 /////////////////EVENT LISTENERS /////////////////////////
 
 //By clicking on the Menu icon
-console.log(typeof header === "undefined");
-
-// menuIcon.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   header.classList.add("hidden");
-//   console.log("ukanze menu");
-// });
+menuIcon.style.color = "red";
+menuIcon.addEventListener("click", function () {
+  //   e.preventDefault();
+  console.log(menuIcon);
+  console.log("kabaye");
+  header.style.opacity = 1;
+});
