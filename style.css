@@ -394,6 +394,46 @@ a {
   flex-direction: row;
   justify-content: space-between;
 }
+.experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, rgb(101, 2, 101), rgb(245, 43, 43));
+  padding: 70px 40px 70px 40px;
+  color: white;
+  margin-bottom: 50px;
+}
+.experience-experience {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.experience-job {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  margin-top: 50px;
+}
+.rectangle {
+  background-color: white;
+  width: 15px;
+  height: 50px;
+  margin-right: 20px;
+}
+.experience-period {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  align-items: end;
+  white-space: nowrap;
+  margin-right: 20px;
+}
 @media only screen and (max-width: 414px) {
   header {
     position: fixed;
