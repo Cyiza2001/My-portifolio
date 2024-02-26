@@ -47,6 +47,9 @@ header a:hover {
   height: 400px;
   position: relative;
   background-image: url("js-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .self-intro {
@@ -54,9 +57,9 @@ header a:hover {
   right: 0;
   left: 0;
   top: 0;
-  height: 100px;
+  height: 400px;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.553);
+  background-color: rgba(0, 0, 0, 0.875);
   z-index: 1;
   padding: 20px;
   text-align: center;
@@ -84,10 +87,10 @@ header a:hover {
 }
 
 .dedicated {
-  margin-top: 130px;
+  margin-top: 180px;
 }
 .download-cv button {
-  margin-top: 50px;
+  margin-top: 27px;
   padding: 5px;
   color: white;
   background: linear-gradient(45deg, rgb(101, 2, 101), rgb(245, 43, 43));
@@ -361,7 +364,7 @@ header a:hover {
     left: 0;
     top: 0;
     width: 300px;
-    height: 100vh;
+    height: 110vh;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -397,6 +400,13 @@ header a:hover {
     z-index: 3;
   }
 
+  .ndanyuzwe {
+    font-size: 38px !important;
+  }
+  .dedicated {
+    margin-top: 170px;
+  }
+
   .section2-upper {
     display: flex;
     flex-direction: column;
@@ -404,10 +414,15 @@ header a:hover {
   .section2-middle {
     display: none;
   }
-  .section2-right {
+
+  .section2-right,
+  .section2-left {
     padding-top: 0;
-    padding-left: 50px;
+    padding-left: 0;
     margin-top: 0;
+  }
+  .more-about-me {
+    font-size: 18px;
   }
   .section2-lower {
     display: flex;
@@ -415,7 +430,7 @@ header a:hover {
     justify-content: space-between;
     padding-top: 10px;
     padding-bottom: 20px;
-    padding-left: 65px;
+    padding-left: 15px;
     height: 200px;
     width: 100%;
   }
