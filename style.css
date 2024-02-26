@@ -287,17 +287,17 @@ header a:hover {
 }
 
 .testimonials-container {
-  position: absolute;
+  /* position: absolute;
   top: 50px;
   left: 80px;
   right: 80px;
   bottom: 80px;
-  height: 240px;
+  height: 240px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  /* z-index: 2; */
 }
 .testimonials-title {
   color: white;
@@ -314,9 +314,8 @@ header a:hover {
 }
 .testimonials-container-lower-left {
   color: white;
-  font-size: 14px;
+  font-size: 24px;
   text-align: justify;
-  margin-right: 53px;
 }
 .testimonials-container-right {
   display: flex;
@@ -456,5 +455,21 @@ header a:hover {
     font-size: 20px;
     padding-right: 0;
     padding-left: 20px;
+  }
+  .testimonials {
+    padding-top: 20px;
+    background-image: url(testimonials.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .testimonials-container-lower {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px 30px 20px;
+  }
+  .testimonials-container-lower-left {
+    margin-bottom: 50px;
+    margin-top: 30px;
+    text-align: justify;
   }
 }
