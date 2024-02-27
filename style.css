@@ -470,8 +470,47 @@ a {
   margin: 10px 0 10px 0;
 }
 .blog-details {
-  /* margin-right: 15px; */
   padding-right: 70px;
+}
+.section-contact {
+  background-image: url(map.png);
+  background-size: cover;
+  height: 300px;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.contact-us-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  height: 230px;
+  padding: 40px;
+
+  color: white;
+  background-color: rgb(1, 1, 35);
+}
+.contact-us {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.upper-input-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 25px;
+  margin-top: 15px;
+  width: 530px;
+}
+.upper-input-types input {
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+.message-input-type {
+  width: 530px;
 }
 
 @media only screen and (max-width: 414px) {
