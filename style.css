@@ -486,8 +486,8 @@ a {
   flex-direction: column;
   align-items: center;
   max-width: 600px;
-  height: 230px;
-  padding: 40px;
+  height: 240px;
+  padding: 20px;
 
   color: white;
   background-color: rgb(1, 1, 35);
@@ -500,17 +500,27 @@ a {
 .upper-input-types {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  height: 25px;
+  /* justify-content: space-between; */
+
   margin-top: 15px;
   width: 530px;
 }
 .upper-input-types input {
   margin-left: 8px;
   margin-bottom: 8px;
+  height: 25px;
 }
 .message-input-type {
   width: 530px;
+  margin-left: 12px;
+  margin-bottom: 12px;
+  height: 35px;
+}
+.section-contact button {
+  background: linear-gradient(45deg, rgb(101, 2, 101), rgb(245, 43, 43));
+  color: white;
+  border: none;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 414px) {
