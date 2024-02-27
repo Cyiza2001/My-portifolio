@@ -385,6 +385,10 @@ a {
   margin-bottom: 10px;
   margin-right: 10px;
 }
+.portfolio-content-left div :hover {
+  color: rgb(166, 22, 166);
+  font-weight: bold;
+}
 .portfolio-content-right {
   display: flex;
   flex-direction: column;
@@ -415,7 +419,6 @@ a {
 .experience-job {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   margin-top: 50px;
 }
 .rectangle {
@@ -488,7 +491,6 @@ a {
   max-width: 600px;
   height: 240px;
   padding: 20px;
-
   color: white;
   background-color: rgb(1, 1, 35);
 }
@@ -500,8 +502,6 @@ a {
 .upper-input-types {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
-
   margin-top: 15px;
   width: 530px;
 }
@@ -509,7 +509,6 @@ a {
   margin-left: 8px;
   margin-bottom: 8px;
   height: 25px;
-  /* padding-left: 5px; */
 }
 .message-input-type {
   width: 530px;
@@ -527,18 +526,19 @@ a {
 .copy-right {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 .copy-right img {
   padding-top: 20px;
-  margin-bottom: 20px;
-  height: 40px;
+  margin-bottom: 10px;
+  height: 50px;
 }
 .copy-right span {
   font-weight: bold;
 }
+
+/*********************************************** ----------------------------------------FOR SMALL SCREENS-----------------------------------------------------------------------------------------------------------------****************************************************/
 
 @media only screen and (max-width: 414px) {
   header {
@@ -573,10 +573,10 @@ a {
   }
   .menu-img,
   .cross-img {
+    display: flex;
     position: absolute;
     top: 0;
     right: 5px;
-
     height: 50px;
     z-index: 3;
   }
@@ -585,7 +585,8 @@ a {
     font-size: 38px !important;
   }
   .dedicated {
-    margin-top: 170px;
+    margin-top: 150px;
+    margin-bottom: 30px;
   }
 
   .section2-upper {
@@ -596,14 +597,20 @@ a {
     display: none;
   }
   .section2-left {
-    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 20px 30px 0px 15px;
+
+    padding: 0;
   }
 
   .section2-right {
-    padding: 20px 20px;
+    margin-top: 0;
+    padding: 20px 10px;
   }
   .my-names {
-    font-size: 22px;
+    font-size: 20px;
   }
   .my-career {
     font-weight: bold;
@@ -654,5 +661,53 @@ a {
     margin-bottom: 50px;
     margin-top: 30px;
     text-align: justify;
+    padding-top: 20px;
+    padding-right: 3px;
+  }
+
+  .portfolio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .portfolio-content-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .blog {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .whole-blog {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0 !important;
+  }
+  .single-blog {
+    margin-top: 60px;
+  }
+  .blog div {
+    /* white-space: nowrap; */
+    font-size: 28px;
+  }
+  .blog-details {
+    padding-right: 10px;
+  }
+  .section-contact {
+    height: 350px;
+  }
+  .contact-us-page {
+    height: 300px;
+  }
+  .upper-input-types {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  .message-input-type {
+    width: 244px;
   }
 }
