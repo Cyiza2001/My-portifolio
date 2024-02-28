@@ -499,23 +499,34 @@ a {
   font-size: 20px;
   margin-bottom: 10px;
 }
+.input-types {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 30px 18px 30px;
+}
 .upper-input-types {
   display: flex;
   flex-direction: row;
-  margin-top: 15px;
-  width: 530px;
+  justify-content: space-between;
+  height: 25px;
+  margin-bottom: 8px;
+  width: 100%;
 }
 .upper-input-types input {
+  flex: 1;
+  padding-left: 5px;
+  outline: none;
+}
+.tel-input {
   margin-left: 8px;
-  margin-bottom: 8px;
-  height: 25px;
+  margin-right: 8px;
 }
 .message-input-type {
-  width: 530px;
-  margin-left: 12px;
-  margin-bottom: 12px;
+  width: 100%;
+  flex: 1;
   height: 35px;
   padding-left: 5px;
+  outline: none;
 }
 .section-contact button {
   background: linear-gradient(45deg, rgb(101, 2, 101), rgb(245, 43, 43));
@@ -688,26 +699,50 @@ a {
     margin-top: 60px;
   }
   .blog div {
-    /* white-space: nowrap; */
     font-size: 28px;
   }
   .blog-details {
     padding-right: 10px;
   }
   .section-contact {
-    height: 350px;
+    height: 400px;
   }
   .contact-us-page {
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 340px;
+  }
+  .input-types {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    align-self: stretch;
+
+    margin: 10px 10px 10px 10px;
+  }
+  .input-types input {
+    padding: 10px;
+    height: 30px;
+    margin-bottom: 8px;
   }
   .upper-input-types {
     display: flex;
     flex-direction: column;
-    width: 250px;
-    padding-left: 0;
+    width: 100%;
+  }
+  .tel-input {
     margin-left: 0;
+    margin-right: 0;
   }
   .message-input-type {
-    width: 244px;
+    display: flex;
+    flex: 1;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 60px;
+    width: 100%;
   }
 }
