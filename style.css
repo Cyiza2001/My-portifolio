@@ -585,7 +585,7 @@ a {
   .menu-img,
   .cross-img {
     display: flex;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 5px;
     height: 50px;
@@ -715,34 +715,31 @@ a {
   }
   .input-types {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-between;
     flex: 1;
     align-self: stretch;
 
     margin: 10px 10px 10px 10px;
   }
-  .input-types input {
-    padding: 10px;
-    height: 30px;
-    margin-bottom: 8px;
-  }
+
   .upper-input-types {
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+  .input-types input {
+    padding: 10px;
+    height: 30px;
+    margin-bottom: 8px;
   }
   .tel-input {
     margin-left: 0;
     margin-right: 0;
   }
   .message-input-type {
-    display: flex;
-    flex: 1;
     margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 60px;
+    height: 55px !important;
     width: 100%;
   }
 }
