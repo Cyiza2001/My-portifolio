@@ -2,15 +2,17 @@
 @media only screen and (min-width: 415px) and (max-width: 880px) {
   header {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 300px;
-    height: 110vh;
+    /* left: 0;
+    top: 0; */
+    right: 0;
+    top: 50px;
+    width: 200px;
+    height: 340px;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 30px 100px 30px;
+    padding: 20px;
     z-index: 2;
     color: white;
     font-weight: bold;
@@ -20,19 +22,16 @@
   header button {
     width: 100%;
     height: 60px;
+    margin-top: 7px;
+    padding: 10px;
     border-radius: 40px;
     background-color: black;
-    margin-bottom: 20px;
-  }
-  header a {
-    background-color: ;
   }
   header button:hover {
     background-color: rgba(175, 174, 174, 0.515);
   }
-  header a:hover {
-    background-color: rgba(175, 174, 174, 0.515);
-    color: white;
+  header a {
+    pointer-events: none;
   }
   .menu-img,
   .cross-img {
@@ -125,6 +124,21 @@
   .portfolio-content-row {
     display: flex;
     flex-direction: column;
+  }
+
+  .experience-job {
+    display: flex;
+    flex-direction: column;
+  }
+  .experience-period {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .rectangle {
+    width: 100%;
+    height: 1px;
+    margin-top: 3px;
+    margin-bottom: 15px;
   }
   .blog {
     display: flex;
