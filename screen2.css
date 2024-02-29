@@ -1,5 +1,5 @@
-/*********** FOR THE SMALLEST SCREENS************** */
-@media only screen and (max-width: 414px) {
+/* SMALLER SCREEN BUT BIGGER THAT SCREEN1 */
+@media only screen and (min-width: 415px) and (max-width: 600px) {
   header {
     position: fixed;
     left: 0;
@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 10px 100px 10px;
+    padding: 60px 30px 100px 30px;
     z-index: 2;
     color: white;
     font-weight: bold;
@@ -22,6 +22,10 @@
     height: 60px;
     border-radius: 40px;
     background-color: black;
+    margin-bottom: 20px;
+  }
+  header a {
+    background-color: ;
   }
   header button:hover {
     background-color: rgba(175, 174, 174, 0.515);
@@ -39,21 +43,23 @@
     height: 50px;
     z-index: 3;
   }
-
+  .hello {
+    margin-bottom: 40px;
+  }
   .ndanyuzwe {
-    font-size: 38px !important;
+    font-size: 28px !important;
   }
   .dedicated {
     margin-top: 120px;
     margin-bottom: 10px;
   }
-
   .section2-upper {
     display: flex;
     flex-direction: column;
   }
   .section2-middle {
-    display: none;
+    display: flex;
+    align-self: center;
   }
   .section2-left {
     display: flex;
@@ -62,21 +68,6 @@
     margin: 20px 30px 0px 15px;
 
     padding: 0;
-  }
-
-  .section2-right {
-    margin-top: 0;
-    padding: 20px 10px;
-  }
-  .my-names {
-    font-size: 20px;
-  }
-  .my-career {
-    font-weight: bold;
-    color: rgb(132, 5, 132);
-  }
-  .more-about-me {
-    font-size: 21px;
   }
   .section2-lower {
     display: flex;
@@ -88,69 +79,56 @@
     height: 200px;
     width: 100%;
   }
-  .section2-lower-image {
-    flex-shrink: 0;
-  }
-
   .ourservices-container {
     display: flex;
     flex-direction: column;
     margin: 10px 20px;
   }
-  .ourservices-container-column {
-    width: 100%;
-  }
   .best-services-details {
-    font-size: 20px;
-    padding-right: 0;
-    padding-left: 20px;
+    padding-left: 40px;
+    font-size: 15px;
+    text-align: left;
   }
+
   .testimonials {
-    padding-top: 20px;
-    background-image: url(testimonials.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
+    margin-top: 0;
+  }
+  .testimonials-title {
+    padding-bottom: 40px;
+  }
+  .testimonials-container {
+    justify-content: center;
   }
   .testimonials-container-lower {
     display: flex;
     flex-direction: column;
-    margin: 10px 20px 30px 20px;
+    justify-content: space-between;
+    flex: 1;
+    margin: 10px 20px 10px 20px;
   }
   .testimonials-container-lower-left {
-    margin-bottom: 50px;
-    margin-top: 30px;
-    text-align: justify;
-    padding-top: 20px;
-    padding-right: 3px;
+    text-align: left;
   }
-
+  .testimonials-container-right {
+    display: flex;
+    flex-direction: row;
+    padding-top: 40px;
+    margin-left: 70px;
+  }
   .portfolio-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+  }
+  .portfolio-content-left {
+    align-self: center;
   }
   .portfolio-content-row {
     display: flex;
     flex-direction: column;
   }
-  .blog {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
   .whole-blog {
     display: flex;
     flex-direction: column;
-    padding-left: 0 !important;
-  }
-  .single-blog {
-    margin-top: 60px;
-  }
-  .blog div {
-    font-size: 28px;
-  }
-  .blog-details {
-    padding-right: 10px;
   }
   .section-contact {
     height: 400px;

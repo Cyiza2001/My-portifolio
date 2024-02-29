@@ -30,7 +30,6 @@ header button {
 }
 header a {
   color: white;
-  background-color: rgb(0, 0, 18);
   text-decoration: none;
 }
 
@@ -278,10 +277,10 @@ header a:hover {
 }
 .testimonials {
   margin-top: 40px;
-  padding-top: 160px;
+  padding-top: 30px;
   height: 400px;
   width: 100%;
-  clip-path: inset(100px 0 0 0);
+  /* clip-path: inset(100px 0 0 0); */
   margin-bottom: 50px;
   background-color: rgba(0, 0, 0, 0.964);
   background-image: url(testimonials.webp);
@@ -313,7 +312,7 @@ header a:hover {
   font-size: 24px;
   text-align: justify;
 }
-.testimonials-container-right {
+testimonials-container-right {
   display: flex;
   flex-direction: row;
   margin-left: 110px;
@@ -539,6 +538,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 10px;
   margin-bottom: 10px;
 }
 .copy-right img {
