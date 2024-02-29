@@ -303,19 +303,22 @@ header a:hover {
   display: flex;
   flex-direction: row;
   flex: 1;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
   margin: 40px 350px 50px 100px;
 }
 .testimonials-container-lower-left {
   color: white;
   font-size: 24px;
   text-align: justify;
+  /* padding-right: 250px; */
 }
-testimonials-container-right {
+.testimonials-container-right {
   display: flex;
   flex-direction: row;
-  margin-left: 110px;
+  flex: 1;
+  margin-right: 180px;
+  padding-left: 40px;
+  padding-top: 0;
 }
 .testimonials-container-right img {
   border-radius: 50%;
