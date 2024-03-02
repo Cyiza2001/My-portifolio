@@ -18,14 +18,8 @@ crossIcon.style.display = "none";
 
 //By clicking on the Menu icon
 menuIcon.addEventListener("click", function () {
-  // header.style.opacity = 1;
-  // menuIcon.style.display = "none";
-  // crossIcon.style.display = "block";
   toggleIcons(1, "none", "block");
 });
 crossIcon.addEventListener("click", function () {
-  // header.style.opacity = 0;
-  // crossIcon.style.display = "none";
-  // menuIcon.style.display = "block";
   toggleIcons(0, "block", "none");
 });
