@@ -1,5 +1,9 @@
 /*********** FOR THE SMALLEST SCREENS************** */
 @media only screen and (max-width: 414px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   header {
     position: fixed;
     right: 0;

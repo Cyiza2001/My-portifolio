@@ -1,5 +1,9 @@
 /* **********MEDIUM TABLETS SCREENS************ */
 @media only screen and (min-width: 881px) and (max-width: 1000px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   header {
     display: flex;
     flex-direction: row;

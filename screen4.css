@@ -1,6 +1,10 @@
 /* All screen above 1000px */
 
 @media only screen and (min-width: 1001px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   header {
     display: flex;
     flex-direction: row;

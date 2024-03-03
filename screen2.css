@@ -1,5 +1,9 @@
 /* SMALLER SCREEN BUT BIGGER THAT SCREEN1 */
 @media only screen and (min-width: 415px) and (max-width: 880px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   header {
     position: fixed;
     /* left: 0;

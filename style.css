@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 .app-container {
   display: flex;
