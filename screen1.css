@@ -39,6 +39,7 @@
   .cross-img {
     display: flex;
     position: fixed;
+    background-color: black;
     top: 0;
     right: 5px;
     height: 50px;

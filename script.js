@@ -23,3 +23,21 @@ menuIcon.addEventListener("click", function () {
 crossIcon.addEventListener("click", function () {
   toggleIcons(0, "block", "none");
 });
+
+////////////////////////////////////////LOAD MAP/////////////////////////////////////////////////////////////////////////////////////
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition((position) => {
+    const { latitude } = position.coords;
+    const { longitude } = position.coords;
+    const coords = [latitude, longitude];
+    const map = L.map("contacts-id").setView(coords, 13);
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    L.marker(coords).addTo(map).bindPopup("").openPopup();
+  });
+}

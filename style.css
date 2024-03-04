@@ -499,6 +499,7 @@ a {
   padding: 20px;
   color: white;
   background-color: rgb(1, 1, 35);
+  z-index: 3;
 }
 .contact-us {
   font-weight: bold;
