@@ -200,6 +200,18 @@ header {
 }
 .stoke-details-right {
   width: 35%;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 10px;
+}
+.single-stat {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 17%;
+}
+
+.stats-header {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(63, 4, 4);
 }
