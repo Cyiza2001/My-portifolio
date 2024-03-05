@@ -482,7 +482,7 @@ a {
   padding-right: 70px;
 }
 .section-contact {
-  background-image: url(map.png);
+  /* background-image: url(map.png); */
   background-size: cover;
   height: 300px;
   padding-top: 30px;
@@ -499,7 +499,7 @@ a {
   padding: 20px;
   color: white;
   background-color: rgb(1, 1, 35);
-  z-index: 3;
+  z-index: 1000;
 }
 .contact-us {
   font-weight: bold;
