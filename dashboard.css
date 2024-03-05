@@ -99,7 +99,6 @@ header {
 .header-right {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   align-items: center;
   position: relative;
 }
@@ -136,14 +135,12 @@ header {
   margin-left: 20px;
 }
 .right-section-content {
-  margin-top: 60px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: auto;
-  /* padding-left: 50px; */
+  /* justify-content: center; */
+  height: 400px;
   width: 100%;
-  height: 60px;
   background-color: rgba(207, 207, 207, 0.392);
 }
 .dashboard-title {
@@ -166,12 +163,17 @@ header {
 .stoke-details {
   display: flex;
   flex-direction: row;
-  margin: 10px;
-  background-color: white;
+  justify-content: space-between;
+  margin: 15px;
+  gap: 15px;
 }
 .stoke-details-left {
   display: flex;
   flex-direction: column;
+  width: 64%;
+  background-color: white;
+  border-radius: 10px;
+  padding-bottom: 16px;
 }
 
 .bar-chat-title {
@@ -179,5 +181,25 @@ header {
   flex-direction: row;
   justify-content: space-between;
   margin: 10px;
-  width: 100%;
+}
+.showby-month {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  padding: 10px;
+  background-color: rgba(207, 207, 207, 0.392);
+  gap: 5px;
+}
+.showby-month img {
+  filter: sepia(100%) saturate(150%);
+}
+#chart_div {
+  width: 600px;
+  height: 200px;
+}
+.stoke-details-right {
+  width: 35%;
+  background-color: white;
+  border-radius: 10px;
 }
