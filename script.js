@@ -30,6 +30,7 @@ if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition((position) => {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
+    console.log([latitude, longitude]);
     const coords = [latitude, longitude];
 
     const map = L.map("contacts-id").setView(coords, 13);
@@ -40,6 +41,7 @@ if (navigator.geolocation) {
     }).addTo(map);
 
     L.marker(coords).addTo(map).bindPopup("").openPopup();
+
     // Disable various interactions
     map.scrollWheelZoom.disable(); // Disable scroll wheel zoom
     map.dragging.disable(); // Disable dragging
