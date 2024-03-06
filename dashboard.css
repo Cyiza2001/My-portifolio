@@ -403,3 +403,35 @@ header {
   border: 10px solid purple;
   transform: translateY(50%); /* Move it down by half its height */
 }
+
+.most-sales-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.profile-sales {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(225, 225, 225);
+  border-radius: 50%;
+  margin-right: 13px;
+}
+.profile-sales img {
+  transform: rotate(180deg) scaleY(-1);
+  height: 20px;
+}
+.most-sales-right {
+  display: flex;
+  flex-direction: column;
+}
+.most-sales-text {
+  font-weight: bold;
+}
+.authors-sales {
+  color: rgb(142, 139, 139);
+  margin-top: 10px;
+}
