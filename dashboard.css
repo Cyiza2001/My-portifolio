@@ -390,7 +390,6 @@ header {
   height: 90px; /* Adjusted height for a semi-circle */
   position: relative; /* Change to relative positioning */
   overflow: hidden; /* Ensure only the lower half is visible */
-  background-color: red;
 }
 
 .circle {
@@ -434,4 +433,14 @@ header {
 .authors-sales {
   color: rgb(142, 139, 139);
   margin-top: 10px;
+}
+
+.sales-details-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 34%;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
