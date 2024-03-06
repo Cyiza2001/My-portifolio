@@ -293,12 +293,13 @@ header {
   display: flex;
   flex-direction: row;
   margin: 15px;
+  gap: 15px;
 }
 
 .new-users {
   display: flex;
   flex-direction: column;
-  width: 33%;
+  width: 31%;
   background-color: white;
   /* padding-right: 10px; */
   padding-left: 15px;
@@ -362,4 +363,23 @@ header {
 .customer-write img,
 .customer-delete img {
   height: 15px;
+}
+.lastweek-sales {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 31%;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.lastweek-sales-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.lastweek-sales-title img {
+  background-color: rgb(93, 88, 88);
+  filter: invert(100%);
 }
