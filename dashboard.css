@@ -108,8 +108,6 @@ header {
   margin-right: 25px;
 }
 
-.notifications-header {
-}
 .notifications-absolute {
   position: absolute;
   left: 10px;
@@ -125,7 +123,6 @@ header {
   width: 20px;
   color: white;
   background-color: rgb(114, 4, 4);
-  /* border-style: solid; */
   border: none;
   border-radius: 50%;
 }
@@ -138,8 +135,7 @@ header {
   padding-top: 60px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  height: 400px;
+  height: auto;
   width: 100%;
   background-color: rgba(207, 207, 207, 0.392);
 }
@@ -196,22 +192,101 @@ header {
 }
 #chart_div {
   width: 600px;
-  height: 200px;
+  margin-top: 80px;
 }
 .stoke-details-right {
   width: 35%;
-  /* background-color: white; */
   border-radius: 10px;
+}
+.stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.double-stat {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 .single-stat {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 17%;
+  width: 50%;
+  border-radius: 10px;
 }
 
 .stats-header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  flex-grow: 1;
   background-color: rgb(63, 4, 4);
+  padding: 5px 15px 5px 15px;
+  margin: 5px;
+}
+.stats-header img {
+  height: 15px;
+}
+.current-numbers {
+  font-weight: bold;
+  padding-left: 25px;
+  padding-top: 15px;
+}
+.user-registrations {
+  color: gray;
+  padding-left: 25px;
+  padding-bottom: 25px;
+  padding-top: 10px;
+}
+.crm-stats {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: end; */
+  /* align-items: end;
+  text-align: left; */
+  width: 100%;
+  background-image: url(wallpapers-for-pc-9.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 10px;
+  color: white;
+  padding: 30px 20px 30px 50px;
+}
+.crm-stats-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 150px;
+  padding: 0;
+  align-items: end;
+}
+.crm-reports {
+  font-weight: bold;
+  font-family: arial;
+  margin-bottom: 10px;
+}
+.crm-reports span {
+  display: block;
+}
+.readmore {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: orange;
+}
+.readmore img {
+  height: 13px;
+  margin-top: 7px;
+  margin-left: 2px;
+}
+
+.new-users {
+  display: flex;
 }
