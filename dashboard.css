@@ -383,3 +383,23 @@ header {
   background-color: rgb(93, 88, 88);
   filter: invert(100%);
 }
+.wrapper {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 160px; /* Set the size of the progress bar */
+  height: 90px; /* Adjusted height for a semi-circle */
+  position: relative; /* Change to relative positioning */
+  overflow: hidden; /* Ensure only the lower half is visible */
+  background-color: red;
+}
+
+.circle {
+  width: 100%; /* Full width */
+  height: 200%; /* Double the height to create a semi-circle */
+  border-radius: 50%; /* Ensure it remains circular */
+  position: absolute;
+  bottom: 0; /* Positioned at the bottom */
+  background-color: white;
+  border: 10px solid purple;
+  transform: translateY(50%); /* Move it down by half its height */
+}
