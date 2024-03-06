@@ -60,9 +60,10 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(207, 207, 207, 0.392);
+  background-color: rgb(225, 225, 225);
   height: 60px;
   border-bottom: 2px solid rgb(183, 183, 183);
+  z-index: 1;
 }
 
 .header-left {
@@ -138,6 +139,7 @@ header {
   height: auto;
   width: 100%;
   background-color: rgba(207, 207, 207, 0.392);
+  z-index: -1;
 }
 .dashboard-title {
   display: flex;
@@ -287,6 +289,77 @@ header {
   margin-left: 2px;
 }
 
+.right-section-content-lower {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
 .new-users {
   display: flex;
+  flex-direction: column;
+  width: 33%;
+  background-color: white;
+  /* padding-right: 10px; */
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+.users-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+.new-users-title {
+  font-weight: bold;
+}
+.new-users-search {
+  display: flex;
+  flex-direction: row;
+}
+.new-users-search input {
+  height: 30px;
+  padding-left: 10px;
+  flex-grow: 1;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  background-color: rgb(225, 225, 225);
+  outline: none;
+  width: 90px;
+}
+.users-showbyAll {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.users-showbyAll span {
+  background-color: rgb(225, 225, 225);
+  padding: 10px;
+  border-radius: 5px;
+}
+.user-customer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  background-color: rgb(225, 225, 225);
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+.customer-profile img {
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid rgb(225, 225, 225);
+}
+.user-type {
+  color: rgb(142, 139, 139);
+}
+.customer-write img,
+.customer-delete img {
+  height: 15px;
 }
