@@ -6,12 +6,55 @@
     <title>Ndanyuzwe Cyiza Alexandre</title>
     <link rel="stylesheet" href="dashboard.css" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script defer src="dashboard.js">
-    
-      </script>
+
   </head>
   <body>
     <div class="dashboard-container">
+         <!-- The UI of messages -->
+         <div class="messages-container">
+          <div class="user-message">User Messages</div>
+             <table>
+               <thead>
+                   <tr>
+                       <th>Number</th>
+                       <th>Name</th>
+                       <th>Phone</th>
+                       <th>Email</th>
+                       <th>Message</th>
+                       <th>Delete</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                       <td>1</td>
+                       <td>Kalisa Tchami</td>
+                       <td>078587274</td>
+                       <td>ndanyuzwealexandre@gmail.com</td>
+                       <td>zaba akabwa sha</td>
+                       <td><img src="icons8-delete-30.png" alt="Delete icon"></td>
+                   </tr>
+                   <tr>
+                     <td>2</td>
+                     <td>Kalisa Tchami</td>
+                     <td>078587274</td>
+                     <td>ndanyuzwealexandre@gmail.com</td>
+                     <td>zaba akabwa sha</td>
+                     <td><img src="icons8-delete-30.png" alt="Delete icon"></td>
+                   </tr>
+                   <tr>
+                     <td>3</td>
+                     <td>Kalisa Tchami</td>
+                     <td>078587274</td>
+                     <td>ndanyuzwealexandre@gmail.com</td>
+                     <td>zaba akabwa sha</td>
+                     <td><img src="icons8-delete-30.png" alt="Delete icon"></td>
+                   </tr>
+               </tbody>
+           </table>
+           
+     
+           </div>
+           <!-- The UI of Notifications -->
       <section class="left-section">
         <div class="my-users">
           <div><img src="icons8-admin-24.png" alt="merge-img" /></div>
@@ -30,7 +73,7 @@
                 </div>
                 <div class="single-user">
                   <div><img src="icons8-admin-24.png" alt="admins"></div>
-                  <div>Manage Messages</div>
+                  <div class="display-messages">Manage Messages</div>
                  
               </div>
               <div class="single-user">
@@ -60,7 +103,7 @@
                 <div class="notifications-header">
                     <img src="notifications-icon.svg" alt="notifications icon">
                 </div>
-                <div class="message-header">
+                <div class="message-header display-messages">
                     <img src="Group 1735.png" alt="message icon">
                 </div>
                 <div class="profile-header"><img src="profile-pic1.jpeg" alt="profile picture"></div>
@@ -299,20 +342,10 @@
           </div>
        
         </div>
-        <!-- The UI of messages -->
-      <div class="messages-container">
-        <div class="singlesender-message">
-          <div class="sender-order">1</div>
-          <div class="sender-name"> Kalisa Tchami</div>
-          <div class="sender-phone">078587274</div>
-          <div class="sender-email"> ndanyuzwealexandre@gmail.com</div>
-          <div class="sent-message">uzaba akabwa sha</div>
-          <div class="delete-sent-message"><img src="" alt="Delete icon"></div>
-        </div>
-      
+     
 
-      </div>
-      <!-- The UI of Notifications -->
+
+
 
         
 
@@ -322,5 +355,7 @@
      
     </div>
     
+    <script  src="dashboard.js">
+    </script>
   </body>
 </html>

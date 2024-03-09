@@ -6,6 +6,7 @@
 .dashboard-container {
   display: flex;
   flex: row;
+  position: relative;
 }
 
 .left-section {
@@ -459,20 +460,40 @@ header {
 .messages-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 17%;
+  top: 40px;
+  right: 30px;
+  height: auto;
 }
-.singlesender-message {
-  display: flex;
-  flex-direction: row;
-  border: 3px solid rgb(142, 139, 139);
-  /* justify-content: space-between; */
-  /* gap: 3px;
-  flex-grow: 1;
-  width: 100%; */
-  border-spacing: 3px;
+.user-message {
+  margin-bottom: 20px;
+  font-weight: bold;
 }
-.singlesender-message div {
-  background-color: white;
-  flex-grow: 1;
-  border: 3px solid rgb(142, 139, 139);
-  padding: 10px;
+
+/* CSS for the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* CSS for table header */
+th {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* CSS for table rows */
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/* CSS for table data cells */
+td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
 }

@@ -33,3 +33,23 @@ function drawVisualization() {
   );
   chart.draw(data, options);
 }
+
+////////////////////////////////////////////////////////////////////////////////
+/////// SELECT ELEMENTS//////////////////////////
+
+const messageContainer = document.querySelector(".messages-container");
+const messageButtons = document.querySelector(".display-messages");
+const rightSection = document.querySelector(".right-section");
+
+/////////////////////INITIAL CONDITIONS//////////////////////
+messageContainer.style.opacity = 0;
+console.log(messageButtons);
+
+//////////////////////////////////////////////////////////////////
+/////////////// EVENT LISTENERS//////////////////////////////
+
+messageButtons.addEventListener("click", function (e) {
+  e.preventDefault();
+  rightSection.style.opacity = 0;
+  messageContainer.style.opacity = 1;
+});
