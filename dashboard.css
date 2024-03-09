@@ -456,3 +456,23 @@ header {
   padding-left: 15px;
   padding-right: 15px;
 }
+.messages-container {
+  display: flex;
+  flex-direction: column;
+}
+.singlesender-message {
+  display: flex;
+  flex-direction: row;
+  border: 3px solid rgb(142, 139, 139);
+  /* justify-content: space-between; */
+  /* gap: 3px;
+  flex-grow: 1;
+  width: 100%; */
+  border-spacing: 3px;
+}
+.singlesender-message div {
+  background-color: white;
+  flex-grow: 1;
+  border: 3px solid rgb(142, 139, 139);
+  padding: 10px;
+}
