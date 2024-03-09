@@ -38,8 +38,9 @@ function drawVisualization() {
 /////// SELECT ELEMENTS//////////////////////////
 
 const messageContainer = document.querySelector(".messages-container");
-const messageButtons = document.querySelector(".display-messages");
+const messageButtons = document.querySelectorAll("#display-messages");
 const rightSection = document.querySelector(".right-section");
+const myDashboard = document.querySelector(".users-text");
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 messageContainer.style.opacity = 0;
@@ -47,9 +48,14 @@ console.log(messageButtons);
 
 //////////////////////////////////////////////////////////////////
 /////////////// EVENT LISTENERS//////////////////////////////
-
-messageButtons.addEventListener("click", function (e) {
-  e.preventDefault();
-  rightSection.style.opacity = 0;
-  messageContainer.style.opacity = 1;
+messageButtons.forEach((messageButton) => {
+  messageButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    rightSection.style.opacity = 0;
+    messageContainer.style.opacity = 1;
+  });
+});
+myDashboard.addEventListener("click", function () {
+  rightSection.style.opacity = 1;
+  messageContainer.style.opacity = 0;
 });
