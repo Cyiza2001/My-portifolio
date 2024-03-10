@@ -547,7 +547,31 @@ header {
   /* opacity: 1; */
   /* background-color: red; */
 }
+/******************************************************************** css from gpt******************************************************************************************************** */
+.blogs-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 40%;
+  top: 40px;
+  right: 10%;
+  height: auto;
+}
 
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+/* ****************************************************************************************************************** */
 .user-message {
   margin-bottom: 20px;
   font-weight: bold;
