@@ -467,6 +467,34 @@ header {
   right: 30px;
   height: auto;
 }
+.notifications-container {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  left: 33%;
+  top: 40px;
+  right: 10%;
+  height: auto;
+}
+.singleuser-notifications {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+}
+.singleuser-notifications img {
+  border-radius: 50%;
+  height: 35px;
+  margin-right: 10px;
+}
+.notifications-details {
+  width: 340px;
+}
+
+.mark-read-icon img {
+  height: 22px;
+}
+
 .user-message {
   margin-bottom: 20px;
   font-weight: bold;

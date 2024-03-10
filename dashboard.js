@@ -41,9 +41,11 @@ const messageContainer = document.querySelector(".messages-container");
 const messageButtons = document.querySelectorAll("#display-messages");
 const rightSection = document.querySelector(".right-section");
 const myDashboard = document.querySelector(".users-text");
+const notificationButtons = document.querySelectorAll("#display-notifications");
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 messageContainer.style.opacity = 0;
+rightSection.style.opacity = 0;
 console.log(messageButtons);
 
 //////////////////////////////////////////////////////////////////
