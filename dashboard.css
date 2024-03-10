@@ -490,9 +490,31 @@ header {
 .notifications-details {
   width: 340px;
 }
+.mark-read-icon {
+  position: relative;
+}
 
 .mark-read-icon img {
   height: 22px;
+}
+.tooltip {
+  position: absolute;
+  top: 30px;
+  left: -38px;
+  width: 100px;
+  height: 40px;
+  padding: 10px 5px;
+  background-color: rgba(156, 156, 156, 0.099);
+  border-radius: 3px;
+  /* opacity: 0; */
+  /* pointer-events: none; */
+}
+.mark-read-icon:hover .tooltip {
+  opacity: 0;
+
+  /* cursor: pointer; */
+  /* opacity: 1; */
+  /* background-color: red; */
 }
 
 .user-message {
