@@ -52,31 +52,50 @@
                </tbody>
            </table>
            </div>
+           </div>
+           
            <!-- The UI of Notifications -->
            <div class="notifications-container">
+            <div class="notifications-title">NOTIFICATIONS</div>
+            <div class="notify-buttons">
+              <button>Mark all as read</button>
+              <button>Clear all</button>
+            </div>
             <div class="singleuser-notifications">
               <div><img src="profile-pic1.jpeg" alt="profile pic"></div>
               <div class="notifications-details">
-                <div>Kalisa Tchami commented on your post</div>
-                <div> ukwiye igifurumba</div>
+                <div> <span>Kalisa Tchami </span>commented on your post</div>
+                <div class="notification-notification"> ukwiye igifurumba</div>
               </div>
-              <div class="mark-read-icon"><img src="icons8-circle-30.png" alt="blue circle"></div>
+              <div class="mark-read-icon">
+                <div>
+                  <img src="icons8-circle-30.png" alt="blue circle">
+                </div>
+  
+                <div class="tooltip">Mark as read</div>
+              </div>
           
             </div>
             <div class="singleuser-notifications">
               <div><img src="profile-pic1.jpeg" alt="profile pic"></div>
               <div class="notifications-details">
-                <div>Manyembua Seraphin Subscribed on your posts</div>
-                <div>👏🎉</div>
+                <div> <span>Manyembua Seraphin </span>Subscribed on your posts</div>
+                <div class="notification-notification">👏🎉</div>
               </div>
-              <div class="mark-read-icon"><img src="icons8-circle-30.png" alt="blue circle"></div>
+              <div class="mark-read-icon">
+                <div>
+                  <img src="icons8-circle-30.png" alt="blue circle">
+                </div>
+  
+                <div class="tooltip">Mark as read</div>
+              </div>
            
             </div>
             <div class="singleuser-notifications">
               <div><img src="profile-pic1.jpeg" alt="profile pic"></div>
               <div class="notifications-details">
-                <div>Kalisa Tchami commented on your post</div>
-              <div> ukwiye igifurumba</div>
+                <div><span>Kalisa Tchami </span> commented on your post</div>
+              <div class="notification-notification"> ukwiye igifurumba</div>
             </div>
             <div class="mark-read-icon">
               <div>
@@ -87,6 +106,9 @@
             </div>
               
            </div>
+           </div>
+          </div>
+           
 
       <section class="left-section">
         <div class="my-users">
@@ -133,7 +155,7 @@
                 <div class="search-button"><img src="search-button.svg" alt="search icon"></div>
             </div>
             <div class="header-right">
-                <div class="notifications-header">
+                <div class="notifications-header" id="display-notifications">
                     <img src="notifications-icon.svg" alt="notifications icon">
                 </div>
                 <div class="message-header" id="display-messages" >

@@ -42,10 +42,13 @@ const messageButtons = document.querySelectorAll("#display-messages");
 const rightSection = document.querySelector(".right-section");
 const myDashboard = document.querySelector(".users-text");
 const notificationButtons = document.querySelectorAll("#display-notifications");
+const notificationsContainer = document.querySelector(
+  ".notifications-container"
+);
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 messageContainer.style.opacity = 0;
-rightSection.style.opacity = 0;
+notificationsContainer.style.opacity = 0;
 console.log(messageButtons);
 
 //////////////////////////////////////////////////////////////////
@@ -60,4 +63,11 @@ messageButtons.forEach((messageButton) => {
 myDashboard.addEventListener("click", function () {
   rightSection.style.opacity = 1;
   messageContainer.style.opacity = 0;
+  notificationsContainer.style.opacity = 0;
+});
+notificationButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    rightSection.style.opacity = 0;
+    notificationsContainer.style.opacity = 1;
+  });
 });

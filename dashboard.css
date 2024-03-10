@@ -467,21 +467,48 @@ header {
   right: 30px;
   height: auto;
 }
+.notifications-title {
+  font-size: 30px;
+  font-weight: Bold;
+  margin-left: 90px;
+  margin-bottom: 40px;
+}
 .notifications-container {
   display: flex;
   flex-direction: column;
-
   position: absolute;
-  left: 33%;
+  left: 40%;
   top: 40px;
   right: 10%;
   height: auto;
 }
+.notify-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 390px;
+  margin: 10px;
+  justify-content: space-between;
+}
+.notify-buttons button {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(142, 139, 139);
+}
+
 .singleuser-notifications {
   display: flex;
   flex-direction: row;
   margin-bottom: 25px;
+  background-color: rgb(142, 139, 139);
+  width: 410px;
+  padding: 10px;
+  border-radius: 10px;
 }
+.singleuser-notifications span {
+  font-weight: bold;
+}
+
 .singleuser-notifications img {
   border-radius: 50%;
   height: 35px;
@@ -489,6 +516,10 @@ header {
 }
 .notifications-details {
   width: 340px;
+}
+.notification-notification {
+  color: rgba(67, 61, 61, 0.574);
+  font-family: monospace;
 }
 .mark-read-icon {
   position: relative;
@@ -506,13 +537,13 @@ header {
   padding: 10px 5px;
   background-color: rgba(156, 156, 156, 0.099);
   border-radius: 3px;
-  /* opacity: 0; */
+  opacity: 0;
   /* pointer-events: none; */
 }
 .mark-read-icon:hover .tooltip {
-  opacity: 0;
+  opacity: 1;
 
-  /* cursor: pointer; */
+  cursor: pointer;
   /* opacity: 1; */
   /* background-color: red; */
 }
