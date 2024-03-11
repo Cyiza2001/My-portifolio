@@ -45,11 +45,14 @@ const notificationButtons = document.querySelectorAll("#display-notifications");
 const notificationsContainer = document.querySelector(
   ".notifications-container"
 );
+const blogButton = document.querySelector("#manage-blogs");
+const blogsContainer = document.querySelector(".blogs-container");
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 messageContainer.style.display = "none";
 notificationsContainer.style.display = "none";
 rightSection.style.display = "none";
+blogsContainer.style.display = "none";
 console.log(messageButtons);
 
 //////////////////////////////////////////////////////////////////
@@ -65,10 +68,16 @@ myDashboard.addEventListener("click", function () {
   rightSection.style.display = "block";
   messageContainer.style.display = "none";
   notificationsContainer.style.display = "none";
+  blogsContainer.style.display = "none";
 });
 notificationButtons.forEach((button) => {
   button.addEventListener("click", function () {
     rightSection.style.display = "none";
     notificationsContainer.style.display = "block";
   });
+});
+
+blogButton.addEventListener("click", function () {
+  blogsContainer.style.display = "block";
+  rightSection.style.display = "none";
 });

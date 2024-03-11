@@ -623,7 +623,37 @@ header {
 .blogs-title-input .descript-input {
   height: 120px;
 }
-
+.update-or-delete {
+  margin-left: 190px;
+  margin-bottom: 50px;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 22px;
+}
+.single-blog-update {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.update-blog-title {
+  width: 380px;
+  background-color: red;
+  margin-right: 24px;
+  height: 40px;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+.update-blog {
+  margin-right: 10px;
+  background-color: palegreen;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+.delete-blog {
+  background-color: red;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
 /* .custom-file-upload {
   display: inline-block;
   padding: 10px 20px;
