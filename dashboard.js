@@ -49,6 +49,7 @@ const notificationsContainer = document.querySelector(
 /////////////////////INITIAL CONDITIONS//////////////////////
 messageContainer.style.opacity = 0;
 notificationsContainer.style.opacity = 0;
+rightSection.style.opacity = 0;
 console.log(messageButtons);
 
 //////////////////////////////////////////////////////////////////
