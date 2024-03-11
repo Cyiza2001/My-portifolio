@@ -47,9 +47,9 @@ const notificationsContainer = document.querySelector(
 );
 
 /////////////////////INITIAL CONDITIONS//////////////////////
-messageContainer.style.opacity = 0;
-notificationsContainer.style.opacity = 0;
-rightSection.style.opacity = 0;
+messageContainer.style.display = "none";
+notificationsContainer.style.display = "none";
+rightSection.style.display = "none";
 console.log(messageButtons);
 
 //////////////////////////////////////////////////////////////////
@@ -57,18 +57,18 @@ console.log(messageButtons);
 messageButtons.forEach((messageButton) => {
   messageButton.addEventListener("click", function (e) {
     e.preventDefault();
-    rightSection.style.opacity = 0;
-    messageContainer.style.opacity = 1;
+    rightSection.style.display = "none";
+    messageContainer.style.display = "block";
   });
 });
 myDashboard.addEventListener("click", function () {
-  rightSection.style.opacity = 1;
-  messageContainer.style.opacity = 0;
-  notificationsContainer.style.opacity = 0;
+  rightSection.style.display = "block";
+  messageContainer.style.display = "none";
+  notificationsContainer.style.display = "none";
 });
 notificationButtons.forEach((button) => {
   button.addEventListener("click", function () {
-    rightSection.style.opacity = 0;
-    notificationsContainer.style.opacity = 1;
+    rightSection.style.display = "none";
+    notificationsContainer.style.display = "block";
   });
 });
