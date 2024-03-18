@@ -6,15 +6,37 @@
 html {
   scroll-behavior: smooth;
 }
+main {
+  position: relative;
+}
+/* the styles for the logn and sign up pages */
 
-.app-container {
+.hidden {
+  display: none;
+}
+.login-container,
+.signup-container {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  background-color: rgb(13, 13, 13);
+  right: 0;
+  height: 400px;
+  top: 0px;
+  width: 30%;
+  z-index: 300;
 }
-
+.signin-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px 130px;
+}
+.names {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 header {
   display: flex;
   flex-direction: row;

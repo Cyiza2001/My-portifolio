@@ -53,7 +53,6 @@ const dashboardContainer = document.querySelector(".dashboard-container");
 /////////////////////INITIAL CONDITIONS//////////////////////
 messageContainer.style.display = "none";
 notificationsContainer.style.display = "none";
-// rightSection.style.display = "none";
 blogsContainer.style.display = "none";
 console.log(messageButtons);
 
