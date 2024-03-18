@@ -47,11 +47,13 @@ const notificationsContainer = document.querySelector(
 );
 const blogButton = document.querySelector("#manage-blogs");
 const blogsContainer = document.querySelector(".blogs-container");
+const logoutButton = document.querySelector("#logout-id");
+const dashboardContainer = document.querySelector(".dashboard-container");
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 messageContainer.style.display = "none";
 notificationsContainer.style.display = "none";
-rightSection.style.display = "none";
+// rightSection.style.display = "none";
 blogsContainer.style.display = "none";
 console.log(messageButtons);
 
@@ -80,4 +82,8 @@ notificationButtons.forEach((button) => {
 blogButton.addEventListener("click", function () {
   blogsContainer.style.display = "block";
   rightSection.style.display = "none";
+});
+logoutButton.addEventListener("click", function () {
+  console.log(dashboardContainer);
+  dashboardContainer.style.opacity = 0;
 });

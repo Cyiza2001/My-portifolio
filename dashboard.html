@@ -10,6 +10,50 @@
   </head>
   <body>
     <div class="dashboard-container">
+      
+
+      
+          <!--**************** THE UI OF BLOGS************* -->
+          <div class="blogs-container">
+            <div class="blogs-title">MANAGE BLOGS</div>
+            <div class="blogs-title-input">
+              <div>TITLE:</div>
+              <div><input type="text"/></div>
+            </div>
+            <div class="upload-blog blogs-title-input">
+              <div>
+                UPLOAD:
+              </div>
+              <div class="file-input-container">
+                <input type="file" class="file-input" accept="image/*"/>
+                <button class="file-input-button">+</button>
+              </div> 
+            </div>
+            <div class="describe-blog blogs-title-input">
+              <div>DESCRIPTION:</div>
+              <div ><input class="descript-input" type="text"  /></div>
+            </div>
+                <!-- *************************UPDATE AND DELETE **************************---------------->
+
+          <div class="update-blogs-container">
+            <div class="update-or-delete">UPDATE OR DELETE BLOG</div>
+            <div class="single-blog-update">
+             <div class="update-blog-title">Using javascript technologies</div>
+             <div class="update-blog">update</div>
+             <div class="delete-blog">Delete</div>
+            </div>
+            <div class="single-blog-update">
+              <div class="update-blog-title">Using javascript technologies</div>
+              <div class="update-blog">update</div>
+              <div class="delete-blog">Delete</div>
+            </div>
+            <div class="single-blog-update">
+              <div class="update-blog-title">Using javascript technologies</div>
+              <div class="update-blog">update</div>
+              <div class="delete-blog">Delete</div>
+            </div>
+         </div>
+          </div>
          <!-- **************************************The UI of messages****************************************** -->
          <div class="messages-container">
           <div class="user-message">Received Messages</div>
@@ -52,7 +96,7 @@
                </tbody>
            </table>
            </div>
-           </div>
+ 
            
            <!--****************** The UI of Notifications********************************* -->
            <div class="notifications-container">
@@ -107,72 +151,6 @@
               
            </div>
            </div>
-          </div>
-
-          <!--**************** THE UI OF BLOGS************* -->
-<!-- 
-          <div class="blogs-container">
-            <div class="blogs-title">MANAGE BLOGS</div>
-            <div class="blogs-title-input">
-              <div>TITLE:</div>
-              <div><input type="text" placeholder="Title"/></div>
-            </div>
-            <div class="upload-blog" >
-               <div>
-                UPLOAD:
-              </div>
-              <div class="file-input-container">
-                <input type="file" class="file-input" accept="image/*"/>
-                <button class="file-input-button">+</button>
-            </div> 
-            
-          </div>
-          <div class="describe-blog">
-            <div>DESCRIPTION:</div>
-            <div><input type="text" /></div>
-          </div> -->
-          <div class="blogs-container">
-            <div class="blogs-title">MANAGE BLOGS</div>
-            <div class="blogs-title-input">
-              <div>TITLE:</div>
-              <div><input type="text"/></div>
-            </div>
-            <div class="upload-blog blogs-title-input">
-              <div>
-                UPLOAD:
-              </div>
-              <div class="file-input-container">
-                <input type="file" class="file-input" accept="image/*"/>
-                <button class="file-input-button">+</button>
-              </div> 
-            </div>
-            <div class="describe-blog blogs-title-input">
-              <div>DESCRIPTION:</div>
-              <div ><input class="descript-input" type="text"  /></div>
-            </div>
-                <!-- *************************UPDATE AND DELETE **************************---------------->
-
-          <div class="update-blogs-container">
-            <div class="update-or-delete">UPDATE OR DELETE BLOG</div>
-            <div class="single-blog-update">
-             <div class="update-blog-title">Using javascript technologies</div>
-             <div class="update-blog">update</div>
-             <div class="delete-blog">Delete</div>
-            </div>
-            <div class="single-blog-update">
-              <div class="update-blog-title">Using javascript technologies</div>
-              <div class="update-blog">update</div>
-              <div class="delete-blog">Delete</div>
-            </div>
-            <div class="single-blog-update">
-              <div class="update-blog-title">Using javascript technologies</div>
-              <div class="update-blog">update</div>
-              <div class="delete-blog">Delete</div>
-            </div>
-         </div>
-          </div>
-          <!-- *************************UPDATE AND DELETE **************************---------------->
-          
 
            
 <!-- ************************************************THE LEFT SECTION******************************************************* -->
@@ -204,14 +182,13 @@
             </div>
                 <div class="single-user">
                     <div><img src="icons8-admin-24.png" alt="admins"></div>
-                    <div>Log Out</div>
+                    <div id="logout-id">Log Out</div>
                    
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+      
       </section>
+
       <section class="right-section">
             
         <header>
@@ -475,7 +452,7 @@
       
      
     </div>
-    
+  </div>
     <script  src="dashboard.js">
     </script>
   </body>
