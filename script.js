@@ -24,8 +24,8 @@ crossIcon.style.display = "none";
 
 ///////////////////////HIDE THE LOGIN PAGE//////////
 // loginPageContainer.classList.add("hidden");
-signupPageContainer.style.display = "none";
-loginPageContainer.style.display = "none";
+// signupPageContainer.style.display = "none";
+// loginPageContainer.style.display = "none";
 
 //////////////////////////////////////////////////////////////
 /////////////////EVENT LISTENERS /////////////////////////
@@ -44,7 +44,6 @@ navSignupLogin.addEventListener("click", function (e) {
     const siblings = link
       .closest(".signup-login")
       .querySelectorAll(".upperNavLinks");
-    console.log(siblings);
     siblings.forEach((el) => {
       if (el === link) {
         el.classList.add("active-upperNavLink");

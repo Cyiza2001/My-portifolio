@@ -11,9 +11,6 @@ main {
 }
 /* the styles for the logn and sign up pages */
 
-.hidden {
-  display: none;
-}
 .signup-container,
 .login-container {
   display: flex;
@@ -144,6 +141,10 @@ input[type="checkbox"]:checked::after {
   color: rgb(101, 2, 101);
   /* text-decoration: underline; */
   border-bottom: 2px solid rgb(101, 2, 101);
+}
+.hidden {
+  /* visibility: hidden; */
+  display: none !important;
 }
 header {
   display: flex;
