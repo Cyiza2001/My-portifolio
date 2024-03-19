@@ -8,7 +8,7 @@ const signupPageContainer = document.querySelector(".signup-container");
 const signupLogin = document.querySelector(".section-login-signup");
 const buttonSignupLogin = document.querySelector("#signup-login-id");
 const sectionSignupLogin = document.querySelector(".section-login-signup");
-const navSignupLogin = document.querySelector("signup-login");
+const navSignupLogin = document.querySelector(".signup-login");
 const signupNavLink = document.querySelector(".signupNavLink");
 const loginNavLink = document.querySelector(".loginNavLink ");
 
@@ -40,12 +40,31 @@ crossIcon.addEventListener("click", function () {
 ////////////////////////CLICK ON THE SIGN UP/ LOGINBUTTON ////////////////////////
 navSignupLogin.addEventListener("click", function (e) {
   const link = e.target;
-  if (link.contains("upperNavLinks")) {
-    link.classList.toggle("active-upperNavLink");
+  if (link.classList.contains("upperNavLinks")) {
+    const siblings = link
+      .closest(".signup-login")
+      .querySelectorAll(".upperNavLinks");
+    console.log(siblings);
+    siblings.forEach((el) => {
+      if (el === link) {
+        el.classList.add("active-upperNavLink");
+        if (el.getAttribute("id") === "signupNavLink") {
+          signupPageContainer.classList.remove("hidden");
+          loginPageContainer.classList.add("hidden");
+        } else {
+          signupPageContainer.classList.add("hidden");
+          loginPageContainer.classList.remove("hidden");
+        }
+      } else {
+        el.classList.remove("active-upperNavLink");
+      }
+    });
   }
 });
 
-buttonSignupLogin.addEventListener("click", function () {
+buttonSignupLogin.addEventListener("click", function (e) {
+  e.preventDefault();
+  sectionSignupLogin.style.display = "flex";
   signupPageContainer.style.display = "flex";
 });
 ///////////////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////

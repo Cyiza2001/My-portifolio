@@ -142,7 +142,8 @@ input[type="checkbox"]:checked::after {
 }
 .active-upperNavLink {
   color: rgb(101, 2, 101);
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  border-bottom: 2px solid rgb(101, 2, 101);
 }
 header {
   display: flex;
