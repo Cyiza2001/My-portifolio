@@ -4,6 +4,14 @@ const menuIcon = document.querySelector(".menu-img");
 const crossIcon = document.querySelector(".cross-img");
 const header = document.querySelector("header");
 const loginPageContainer = document.querySelector(".login-container");
+const signupPageContainer = document.querySelector(".signup-container");
+const signupLogin = document.querySelector(".section-login-signup");
+const buttonSignupLogin = document.querySelector("#signup-login-id");
+const sectionSignupLogin = document.querySelector(".section-login-signup");
+const navSignupLogin = document.querySelector("signup-login");
+const signupNavLink = document.querySelector(".signupNavLink");
+const loginNavLink = document.querySelector(".loginNavLink ");
+
 //toggle the cross and menu icon
 const toggleIcons = function (opacity, menu, cross) {
   header.style.opacity = opacity;
@@ -16,6 +24,7 @@ crossIcon.style.display = "none";
 
 ///////////////////////HIDE THE LOGIN PAGE//////////
 // loginPageContainer.classList.add("hidden");
+signupPageContainer.style.display = "none";
 loginPageContainer.style.display = "none";
 
 //////////////////////////////////////////////////////////////
@@ -28,7 +37,28 @@ menuIcon.addEventListener("click", function () {
 crossIcon.addEventListener("click", function () {
   toggleIcons(0, "block", "none");
 });
+////////////////////////CLICK ON THE SIGN UP/ LOGINBUTTON ////////////////////////
+navSignupLogin.addEventListener("click", function (e) {
+  const link = e.target;
+  if (link.contains("upperNavLinks")) {
+    link.classList.toggle("active-upperNavLink");
+  }
+});
 
+buttonSignupLogin.addEventListener("click", function () {
+  signupPageContainer.style.display = "flex";
+});
+///////////////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
+
+//HIDE THE PAGE WHENEVER ONE CLICKS OUTSIDE OF THE LOGIN PAGE//////
+document.body.addEventListener("click", function (event) {
+  if (
+    !sectionSignupLogin.contains(event.target) &&
+    event.target !== buttonSignupLogin
+  ) {
+    sectionSignupLogin.style.display = "none";
+  }
+});
 ////////////////////////////////////////LOAD MAP/////////////////////////////////////////////////////////////////////////////////////
 
 if (navigator.geolocation) {

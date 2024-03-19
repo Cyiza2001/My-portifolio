@@ -94,12 +94,54 @@ main {
   align-items: center;
   justify-content: center;
 }
-.Already span {
+.Already span,
+.forgot-password {
   color: rgb(101, 2, 101);
   font-weight: bold;
 }
 .accept-terms span {
   font-weight: bold;
+  text-decoration: underline;
+}
+.credentials-settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.keep-me-logged {
+  display: flex;
+  flex-direction: row;
+}
+.keep-me-logged input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  /* Customize background color */
+  background-color: white; /* Default background color (blue) */
+  margin-right: 10px;
+}
+input[type="checkbox"]:checked {
+  background-color: rgb(101, 2, 101); /* Custom background color when checked */
+}
+input[type="checkbox"]:checked::after {
+  content: ""; /* Empty content */
+  position: absolute;
+  left: 6px; /* Adjust position horizontally */
+  top: 3px; /* Adjust position vertically */
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg); /* Rotate checkmark */
+}
+.active-upperNavLink {
+  color: rgb(101, 2, 101);
   text-decoration: underline;
 }
 header {

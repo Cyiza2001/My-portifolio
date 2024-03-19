@@ -38,66 +38,70 @@
         <button><a href="#experience-id">EXPERIENCE</a></button>
         <button><a href="#blog-id">BLOG</a></button>
         <button><a href="#contacts-id">CONTACTS</a></button>
-        <button id="sign-in">Sign Up / Log In</button>
+        <button id="signup-login-id">Sign Up / Log In</button>
       </header>
       <main>
-        <!-- THE UI OF SIGN UP PAGES -->
-        <div class="signup-container">
-          <div class="signup-login">
-            <div id="login-signup-id">Sign Up</div>
-            <div id="login-signup-id">Log In</div>
+        <section class="section-login-signup">
+          <!-- THE UI OF SIGN UP PAGES -->
+          <div class="signup-container">
+            <div class="signup-login">
+              <div class="upperNavLinks" id="signupNavLink">Sign Up</div>
+              <div class="upperNavLinks" id="loginNavLink">Log In</div>
+            </div>
+            <div class="names">
+              <div><input type="name" placeholder="First Name" /></div>
+              <div><input type="name" placeholder="Last Name" /></div>
+            </div>
+            <div class="email">
+              <input type="text" placeholder="Email" />
+            </div>
+            <div class="password">
+              <input type="password" placeholder="Password" />
+            </div>
+            <div class="signup-inner-button">
+              <button>Sign Up</button>
+            </div>
+            <div class="Already">
+              <p>Already have an account? <span>Log In</span></p>
+            </div>
+            <div class="accept-terms">
+              <p>
+                By signing up, I accept Cyiza's <span>Terms & Conditions</span>
+              </p>
+            </div>
           </div>
-          <div class="names">
-            <div><input type="name" placeholder="First Name" /></div>
-            <div><input type="name" placeholder="Last Name" /></div>
-          </div>
-          <div class="email">
-            <input type="text" placeholder="Email" />
-          </div>
-          <div class="password">
-            <input type="password" placeholder="Password" />
-          </div>
-          <div class="signup-inner-button">
-            <button>Sign Up</button>
-          </div>
-          <div class="Already">
-            <p>Already have an account? <span>Log In</span></p>
-          </div>
-          <div class="accept-terms">
-            <p>
-              By signing up, I accept Cyiza's <span>Terms & Conditions</span>
-            </p>
-          </div>
-        </div>
-        <!-- ******************THE UI OF LOGIN PAGE****************** -->
-        <div class="login-container">
-          <div class="signup-login">
-            <div id="login-signup-id">Sign Up</div>
-            <div id="login-signup-id">Log In</div>
-          </div>
+          <!-- ******************THE UI OF LOGIN PAGE****************** -->
+          <div class="login-container">
+            <div class="signup-login">
+              <div id="login-signup-id">Sign Up</div>
+              <div id="login-signup-id">Log In</div>
+            </div>
 
-          <div class="email">
-            <input type="text" placeholder="Email" />
+            <div class="email">
+              <input type="text" placeholder="Email" />
+            </div>
+            <div class="password">
+              <input type="password" placeholder="Password" />
+            </div>
+            <div class="credentials-settings">
+              <div class="keep-me-logged">
+                <div><input type="checkbox" /></div>
+                <div>Keep me logged in</div>
+              </div>
+              <div class="forgot-password">forgot password?</div>
+            </div>
+            <div class="signup-inner-button">
+              <button>Log In</button>
+            </div>
+            <div class="Already">
+              <p>Don't you have an account? <span>Sign Up</span></p>
+            </div>
+            <div class="accept-terms">
+              <p>Log-In to Cyiza page <span>Welcome</span></p>
+            </div>
           </div>
-          <div class="password">
-            <input type="password" placeholder="Password" />
-          </div>
-          <div class="credentials-settings">
-            <div>keep me logged in</div>
-            <div>forgot password?</div>
-          </div>
-          <div class="signup-inner-button">
-            <button>Log In</button>
-          </div>
-          <div class="Already">
-            <p>Don't you have an account? <span>Sign Up</span></p>
-          </div>
-          <div>
-            <p>
-              By signing up, I accept Cyiza's <span>Terms & Conditions</span>
-            </p>
-          </div>
-        </div>
+        </section>
+
         <!-- ******************THE UI OF HOME PAGE****************** -->
 
         <section class="intro" id="home-id">
