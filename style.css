@@ -14,28 +14,93 @@ main {
 .hidden {
   display: none;
 }
-.login-container,
-.signup-container {
+.signup-container,
+.login-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: absolute;
-  background-color: rgb(13, 13, 13);
+  /* background-color: rgb(13, 13, 13); */
+  /* background-color: red; */
+  background-color: rgb(245, 43, 43);
   right: 0;
   height: 400px;
   top: 0px;
-  width: 30%;
+  width: 33%;
   z-index: 300;
+  padding: 20px 30px;
+  color: white;
 }
-.signin-login {
+.signup-login {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 30px 130px;
+  margin: 10px 100px;
+  font-size: 20px;
+  font-weight: bold;
+  /* margin: 30px 130px; */
 }
 .names {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  /* margin: 10px 20px; */
+}
+.names input {
+  height: 50px;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
+.email input {
+  display: flex;
+  flex-direction: row;
+  /* margin: 0 20px; */
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
+
+.password input {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+}
+.signup-inner-button button {
+  display: flex;
+  width: 100%;
+  /* background-color: green; */
+  background-color: rgb(101, 2, 101);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.Already,
+.accept-terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Already span {
+  color: rgb(101, 2, 101);
+  font-weight: bold;
+}
+.accept-terms span {
+  font-weight: bold;
+  text-decoration: underline;
 }
 header {
   display: flex;

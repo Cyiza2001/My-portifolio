@@ -3,6 +3,7 @@
 const menuIcon = document.querySelector(".menu-img");
 const crossIcon = document.querySelector(".cross-img");
 const header = document.querySelector("header");
+const loginPageContainer = document.querySelector(".login-container");
 //toggle the cross and menu icon
 const toggleIcons = function (opacity, menu, cross) {
   header.style.opacity = opacity;
@@ -12,6 +13,10 @@ const toggleIcons = function (opacity, menu, cross) {
 
 ////////////HIDE THE CROSS ICON//////
 crossIcon.style.display = "none";
+
+///////////////////////HIDE THE LOGIN PAGE//////////
+// loginPageContainer.classList.add("hidden");
+loginPageContainer.style.display = "none";
 
 //////////////////////////////////////////////////////////////
 /////////////////EVENT LISTENERS /////////////////////////
