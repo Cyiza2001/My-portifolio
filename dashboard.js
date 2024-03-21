@@ -82,7 +82,7 @@ blogButton.addEventListener("click", function () {
   blogsContainer.style.display = "block";
   rightSection.style.display = "none";
 });
-logoutButton.addEventListener("click", function () {
-  console.log(dashboardContainer);
-  dashboardContainer.style.opacity = 0;
-});
+// logoutButton.addEventListener("click", function () {
+//   console.log(dashboardContainer);
+//   dashboardContainer.style.opacity = 0;
+// });
