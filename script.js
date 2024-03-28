@@ -11,12 +11,61 @@ const sectionSignupLogin = document.querySelector(".section-login-signup");
 const navSignupLogin = document.querySelector(".signup-login");
 const signupNavLink = document.querySelector(".signupNavLink");
 const loginNavLink = document.querySelector(".loginNavLink ");
+const fistNameInput = document.querySelector(".first-name-input");
+const lastNameInput = document.querySelector(".last-name-input");
+const emailInput = document.querySelector(".email-input");
+const passwordInput = document.querySelector(".password-input");
 
+//////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
 const toggleIcons = function (opacity, menu, cross) {
   header.style.opacity = opacity;
   menuIcon.style.display = menu;
   crossIcon.style.display = cross;
+};
+
+/////***************HANDLING THE CLICKS ON SIBLINGS*********************************/////////////////////////////
+
+const handleSiblings = function (link) {
+  console.log("wahiye sha");
+  if (link.classList.contains("upperNavLinks")) {
+    const siblings = link
+      .closest(".signup-login")
+      .querySelectorAll(".upperNavLinks");
+    for (let i = 0; i < siblings.length; i++) {
+      const el = siblings[i];
+      // el.classList.toggle("active-upperNavLink", el === link);
+      if (el.getAttribute("id") === "signupNavLink" && el === link) {
+        console.log(link);
+        // el.classList.toggle("active-upperNavLink");
+        signupPageContainer.classList.remove("hidden");
+        loginPageContainer.classList.add("hidden");
+      }
+      if (el.getAttribute("id") === "loginNavLink" && el === link) {
+        console.log(link);
+        // el.classList.toggle("active-upperNavLink");
+        signupPageContainer.classList.add("hidden");
+        loginPageContainer.classList.remove("hidden");
+      }
+    }
+  }
+};
+
+//////////////*************SIGN UP FUNCTION *********//////////////////////////////////////////
+
+const signupFunction = function (e) {
+  const firstName = firstNameInput.value;
+  const lastName = lastNameInput.value;
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  if (email.slice(-10) !== "@gmail.com") {
+    const emailAlert = document.createElement("div");
+    emailAlert.innerText = "Please enter a valid email";
+  }
+  if (password.length < 8) {
+    const passwordAlert = document.createElement("div");
+    passwordAlert.innerText = "A password must be at least 8 characters";
+  }
 };
 
 ////////////HIDE THE CROSS ICON//////
@@ -26,6 +75,14 @@ crossIcon.style.display = "none";
 // loginPageContainer.classList.add("hidden");
 // signupPageContainer.style.display = "none";
 // loginPageContainer.style.display = "none";
+
+/////////////////////////////**************REGISTERED USERS*****************************************///////////////////////
+const user1 = {
+  firstName: "John",
+  lastName: "Doe",
+  email: "<EMAIL>",
+  password: "<PASSWORD>",
+};
 
 //////////////////////////////////////////////////////////////
 /////////////////EVENT LISTENERS /////////////////////////
@@ -39,44 +96,9 @@ crossIcon.addEventListener("click", function () {
 });
 ////////////////////////CLICK ON THE SIGN UP/ LOGINBUTTON ////////////////////////
 
-// navSignupLogin.addEventListener("click", function (e) {
-//   const link = e.target;
-//   console.log(link);
-//   if (link.classList.contains("upperNavLinks")) {
-//     const siblings = link
-//       .closest(".signup-login")
-//       .querySelectorAll(".upperNavLinks");
-//     for (let i = 0; i < siblings.length; i++) {
-//       const el = siblings[i];
-//       // el.classList.toggle("active-upperNavLink", el === link);
-//       if (el.getAttribute("id") === "signupNavLink" && el === link) {
-//         console.log(link);
-//         // el.classList.toggle("active-upperNavLink");
-//         signupPageContainer.classList.remove("hidden");
-//         loginPageContainer.classList.add("hidden");
-//       }
-//       if (el.getAttribute("id") === "loginNavLink" && el === link) {
-//         console.log(link);
-//         // el.classList.toggle("active-upperNavLink");
-//         signupPageContainer.classList.add("hidden");
-//         loginPageContainer.classList.remove("hidden");
-//       }
-//     }
-//   }
-// });
 navSignupLogin.addEventListener("click", function (e) {
-  const link = e.target.closest(".upperNavLinks"); // Find the closest link
-  if (!link) return; // Exit if the click is not on a link
-
-  const id = link.getAttribute("id"); // Get the id of the clicked link
-
-  if (id === "signupNavLink") {
-    signupPageContainer.classList.remove("hidden");
-    loginPageContainer.classList.add("hidden");
-  } else if (id === "loginNavLink") {
-    signupPageContainer.classList.add("hidden");
-    loginPageContainer.classList.remove("hidden");
-  }
+  const link = e.target;
+  handleSiblings(link);
 });
 
 buttonSignupLogin.addEventListener("click", function (e) {
