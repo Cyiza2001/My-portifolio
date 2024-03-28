@@ -38,49 +38,44 @@ crossIcon.addEventListener("click", function () {
   toggleIcons(0, "block", "none");
 });
 ////////////////////////CLICK ON THE SIGN UP/ LOGINBUTTON ////////////////////////
+
 // navSignupLogin.addEventListener("click", function (e) {
 //   const link = e.target;
+//   console.log(link);
 //   if (link.classList.contains("upperNavLinks")) {
 //     const siblings = link
 //       .closest(".signup-login")
 //       .querySelectorAll(".upperNavLinks");
-//     siblings.forEach((el) => {
-//       el.classList[el === link ? "add" : "remove"]("active-upperNavLink");
-
-//       if (el.getAttribute("id") === "signupNavLink") {
-//         console.log(el.getAttribute("id"));
+//     for (let i = 0; i < siblings.length; i++) {
+//       const el = siblings[i];
+//       // el.classList.toggle("active-upperNavLink", el === link);
+//       if (el.getAttribute("id") === "signupNavLink" && el === link) {
+//         console.log(link);
+//         // el.classList.toggle("active-upperNavLink");
 //         signupPageContainer.classList.remove("hidden");
 //         loginPageContainer.classList.add("hidden");
-//       } else {
-//         console.log(el.getAttribute("id"));
+//       }
+//       if (el.getAttribute("id") === "loginNavLink" && el === link) {
+//         console.log(link);
+//         // el.classList.toggle("active-upperNavLink");
 //         signupPageContainer.classList.add("hidden");
 //         loginPageContainer.classList.remove("hidden");
 //       }
-//     });
+//     }
 //   }
 // });
 navSignupLogin.addEventListener("click", function (e) {
-  const link = e.target;
-  if (link.classList.contains("upperNavLinks")) {
-    const siblings = link
-      .closest(".signup-login")
-      .querySelectorAll(".upperNavLinks");
-    for (let i = 0; i < siblings.length; i++) {
-      const el = siblings[i];
-      // el.classList.toggle("active-upperNavLink", el === link);
-      if (el.getAttribute("id") === "signupNavLink" && el === link) {
-        console.log(el);
-        // el.classList.toggle("active-upperNavLink");
-        signupPageContainer.classList.remove("hidden");
-        loginPageContainer.classList.add("hidden");
-      }
-      if (el.getAttribute("id") === "loginNavLink" && el === link) {
-        console.log(el);
-        // el.classList.toggle("active-upperNavLink");
-        signupPageContainer.classList.add("hidden");
-        loginPageContainer.classList.remove("hidden");
-      }
-    }
+  const link = e.target.closest(".upperNavLinks"); // Find the closest link
+  if (!link) return; // Exit if the click is not on a link
+
+  const id = link.getAttribute("id"); // Get the id of the clicked link
+
+  if (id === "signupNavLink") {
+    signupPageContainer.classList.remove("hidden");
+    loginPageContainer.classList.add("hidden");
+  } else if (id === "loginNavLink") {
+    signupPageContainer.classList.add("hidden");
+    loginPageContainer.classList.remove("hidden");
   }
 });
 
