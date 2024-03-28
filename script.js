@@ -11,10 +11,11 @@ const sectionSignupLogin = document.querySelector(".section-login-signup");
 const navSignupLogin = document.querySelector(".signup-login");
 const signupNavLink = document.querySelector(".signupNavLink");
 const loginNavLink = document.querySelector(".loginNavLink ");
-const fistNameInput = document.querySelector(".first-name-input");
+const firstNameInput = document.querySelector(".first-name-input");
 const lastNameInput = document.querySelector(".last-name-input");
 const emailInput = document.querySelector(".email-input");
 const passwordInput = document.querySelector(".password-input");
+const confirmSignUp = document.querySelector(".button-confirm-signup");
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -58,6 +59,7 @@ const signupFunction = function (e) {
   const lastName = lastNameInput.value;
   const email = emailInput.value;
   const password = passwordInput.value;
+  console.log(firstName, lastName, email, password);
   if (email.slice(-10) !== "@gmail.com") {
     const emailAlert = document.createElement("div");
     emailAlert.innerText = "Please enter a valid email";
@@ -66,7 +68,9 @@ const signupFunction = function (e) {
     const passwordAlert = document.createElement("div");
     passwordAlert.innerText = "A password must be at least 8 characters";
   }
+  return firstName + " " + lastName + " " + email;
 };
+confirmSignUp.addEventListener("click", (e) => console.log(signupFunction()));
 
 ////////////HIDE THE CROSS ICON//////
 crossIcon.style.display = "none";
