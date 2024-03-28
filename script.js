@@ -54,23 +54,40 @@ const handleSiblings = function (link) {
 
 //////////////*************SIGN UP FUNCTION *********//////////////////////////////////////////
 
-const signupFunction = function (e) {
-  const firstName = firstNameInput.value;
-  const lastName = lastNameInput.value;
-  const email = emailInput.value;
-  const password = passwordInput.value;
-  console.log(firstName, lastName, email, password);
-  if (email.slice(-10) !== "@gmail.com") {
+let userCredentials = {};
+
+const signupFunction = function (firstName, lastName, email, password) {
+  validEmail(email);
+  validPassword(password);
+  userCredentials.firstName = firstName;
+  userCredentials.lastName = lastName;
+  userCredentials.email = email;
+  userCredentials.password = password;
+};
+//////////////*************VALID EMAIL FUNCTION *******************************////////////////////////////
+
+const validEmail = function (email) {
+  if (email.slice(-10) === "@gmail.com" && email.length >= 11) return email;
+  else {
     const emailAlert = document.createElement("div");
     emailAlert.innerText = "Please enter a valid email";
   }
-  if (password.length < 8) {
+};
+const validPassword = function (password) {
+  if (password.length >= 8) return password;
+  else {
     const passwordAlert = document.createElement("div");
     passwordAlert.innerText = "A password must be at least 8 characters";
   }
-  return firstName + " " + lastName + " " + email;
 };
-confirmSignUp.addEventListener("click", (e) => console.log(signupFunction()));
+confirmSignUp.addEventListener("click", (e) => {
+  signupFunction(
+    firstNameInput.value,
+    lastNameInput.value,
+    emailInput.value,
+    passwordInput.value
+  );
+});
 
 ////////////HIDE THE CROSS ICON//////
 crossIcon.style.display = "none";
@@ -81,12 +98,6 @@ crossIcon.style.display = "none";
 // loginPageContainer.style.display = "none";
 
 /////////////////////////////**************REGISTERED USERS*****************************************///////////////////////
-const user1 = {
-  firstName: "John",
-  lastName: "Doe",
-  email: "<EMAIL>",
-  password: "<PASSWORD>",
-};
 
 //////////////////////////////////////////////////////////////
 /////////////////EVENT LISTENERS /////////////////////////
