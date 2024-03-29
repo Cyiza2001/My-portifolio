@@ -53,16 +53,21 @@ const handleSiblings = function (link) {
 };
 
 //////////////*************SIGN UP FUNCTION *********//////////////////////////////////////////
-
-let userCredentials = {};
-
-const signupFunction = function (firstName, lastName, email, password) {
+const users = {};
+const addUser = function (firstName, lastName, email, password) {
+  if (users.hasOwnProperty(email)) {
+    console.log("the user has already been added");
+    return;
+  }
   validEmail(email);
   validPassword(password);
-  userCredentials.firstName = firstName;
-  userCredentials.lastName = lastName;
-  userCredentials.email = email;
-  userCredentials.password = password;
+  users[email] = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    password: password,
+  };
+  console.log(users);
 };
 //////////////*************VALID EMAIL FUNCTION *******************************////////////////////////////
 
@@ -81,7 +86,7 @@ const validPassword = function (password) {
   }
 };
 confirmSignUp.addEventListener("click", (e) => {
-  signupFunction(
+  addUser(
     firstNameInput.value,
     lastNameInput.value,
     emailInput.value,
