@@ -16,6 +16,8 @@ const lastNameInput = document.querySelector(".last-name-input");
 const emailInput = document.querySelector(".email-input");
 const passwordInput = document.querySelector(".password-input");
 const confirmSignUp = document.querySelector(".button-confirm-signup");
+const emailContainer = document.querySelector(".email");
+const passwordContainer = document.querySelector(".password");
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -76,15 +78,16 @@ const validEmail = function (email) {
     return true;
   } else {
     const emailAlert = document.createElement("div");
+    emailContainer.appendChild(emailAlert);
     emailAlert.innerText = "Please enter a valid email";
-    console.log(emailAlert);
     return false;
   }
 };
-console.log(validEmail("dede"));
+
 const validPassword = function (password) {
   if (password.length >= 8) {
     const passwordAlert = document.createElement("div");
+    passwordContainer.appendChild(passwordAlert);
     passwordAlert.innerText = "A password must be at least 8 characters";
     return false;
   } else return true;
