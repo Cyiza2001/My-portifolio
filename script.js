@@ -61,8 +61,9 @@ const addUser = function (firstName, lastName, email, password) {
     console.log("the user has already been added");
     return;
   }
-  console.log(validEmail(email));
-  if (!validEmail(email) || !validPassword(password)) return;
+  if (!validPassword(password)) return;
+  if (!validEmail(email)) return;
+  // if (!validPassword(password)) return;
   users[email] = {
     firstName: firstName,
     lastName: lastName,
@@ -80,14 +81,16 @@ const validEmail = function (email) {
     const emailAlert = document.createElement("div");
     emailContainer.appendChild(emailAlert);
     emailAlert.innerText = "Please enter a valid email";
+    console.log(emailContainer);
     return false;
   }
 };
 
 const validPassword = function (password) {
-  if (password.length >= 8) {
+  if (!password.length >= 8) {
     const passwordAlert = document.createElement("div");
     passwordContainer.appendChild(passwordAlert);
+    console.log(passwordContainer);
     passwordAlert.innerText = "A password must be at least 8 characters";
     return false;
   } else return true;
