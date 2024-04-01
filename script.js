@@ -80,6 +80,9 @@ const addUser = function (firstName, lastName, email, password) {
   const signUpAlert = document.createElement("div");
   signUpInnerButton.appendChild(signUpAlert);
   signUpAlert.innerText = "You are successfully signed up!";
+  setTimeout(function () {
+    signUpAlert.innerText = "";
+  }, 3000);
   console.log(signUpInnerButton);
 };
 
