@@ -78,6 +78,7 @@ const validEmail = function (email) {
   if (email.slice(-10) === "@gmail.com" && email.length >= 11) {
     return true;
   } else {
+    let emailAlert = document.que;
     const emailAlert = document.createElement("div");
     emailContainer.appendChild(emailAlert);
     emailAlert.innerText = "Please enter a valid email";
@@ -91,6 +92,7 @@ const validPassword = function (password) {
     const passwordAlert = document.createElement("div");
     passwordContainer.appendChild(passwordAlert);
     console.log(passwordContainer);
+    if (!passwordAlert.innerText === "") return;
     passwordAlert.innerText = "A password must be at least 8 characters";
     console.log(password.length);
     return false;
