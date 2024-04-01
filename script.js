@@ -78,7 +78,7 @@ const addUser = function (firstName, lastName, email, password) {
     password: password,
   };
   const signUpAlert = document.createElement("div");
-  signUpInnerButton.appendChild("signUpAlert");
+  signUpInnerButton.appendChild(signUpAlert);
   signUpAlert.innerText = "You are successfully signed up!";
   console.log(signUpInnerButton);
 };
