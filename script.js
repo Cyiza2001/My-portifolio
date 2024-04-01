@@ -20,6 +20,7 @@ const emailContainer = document.querySelector(".email");
 const passwordContainer = document.querySelector(".password");
 const namesContainer = document.querySelector(".names");
 const firstNameContainer = document.querySelector(".first-name-container");
+const signUpInnerButton = document.querySelector(".signup-inner-button");
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -76,7 +77,10 @@ const addUser = function (firstName, lastName, email, password) {
     email: email,
     password: password,
   };
-  console.log(users);
+  const signUpAlert = document.createElement("div");
+  signUpInnerButton.appendChild("signUpAlert");
+  signUpAlert.innerText = "You are successfully signed up!";
+  console.log(signUpInnerButton);
 };
 
 //////////////*************VALID EMAIL FUNCTION *******************************////////////////////////////
@@ -84,7 +88,7 @@ const addUser = function (firstName, lastName, email, password) {
 const validEmail = function (email) {
   let emailAlert = emailContainer.querySelector(".emailAlert");
   if (email.slice(-10) === "@gmail.com" && email.length >= 11) {
-    emailAlert.innerText = "";
+    if (emailAlert) emailAlert.innerText = "";
     return true;
   } else {
     if (emailAlert) {
@@ -115,7 +119,7 @@ const validPassword = function (password) {
       return false;
     }
   } else {
-    passwordAlert.innerText = "";
+    if (passwordAlert) passwordAlert.innerText = "";
     return true;
   }
 };
@@ -135,7 +139,7 @@ const validateUserName = function (firstName, lastName) {
 
     return false;
   } else {
-    namesAlert.innerText = "";
+    if (namesAlert) namesAlert.innerText = "";
     return true;
   }
 };
