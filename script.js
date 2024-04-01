@@ -78,24 +78,34 @@ const validEmail = function (email) {
   if (email.slice(-10) === "@gmail.com" && email.length >= 11) {
     return true;
   } else {
-    let emailAlert = document.que;
-    const emailAlert = document.createElement("div");
-    emailContainer.appendChild(emailAlert);
-    emailAlert.innerText = "Please enter a valid email";
-    console.log(emailContainer);
+    let emailAlert = emailContainer.querySelector(".emailAlert");
+    if (emailAlert) {
+      emailAlert.innerText = "Please enter a valid email";
+    } else {
+      emailAlert = document.createElement("div");
+      emailAlert.classList.add("emailAlert");
+      emailContainer.appendChild(emailAlert);
+      emailAlert.innerText = "Please enter a valid email";
+      console.log(emailContainer);
+    }
+
     return false;
   }
 };
 
 const validPassword = function (password) {
   if (password.length <= 8) {
-    const passwordAlert = document.createElement("div");
-    passwordContainer.appendChild(passwordAlert);
-    console.log(passwordContainer);
-    if (!passwordAlert.innerText === "") return;
-    passwordAlert.innerText = "A password must be at least 8 characters";
-    console.log(password.length);
-    return false;
+    let passwordAlert = passwordContainer.querySelector(".passwordAlert");
+    if (passwordAlert) {
+      passwordAlert.innerText = "A password must be at least 8 characters";
+    } else {
+      passwordAlert = document.createElement("div");
+      passwordAlert.classList.add("passwordAlert");
+      passwordContainer.appendChild(passwordAlert);
+      passwordAlert.innerText = "A password must be at least 8 characters";
+      console.log(passwordContainer);
+      return false;
+    }
   } else {
     return true;
   }
