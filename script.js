@@ -82,10 +82,11 @@ const addUser = function (firstName, lastName, email, password) {
 //////////////*************VALID EMAIL FUNCTION *******************************////////////////////////////
 
 const validEmail = function (email) {
+  let emailAlert = emailContainer.querySelector(".emailAlert");
   if (email.slice(-10) === "@gmail.com" && email.length >= 11) {
+    emailAlert.innerText = "";
     return true;
   } else {
-    let emailAlert = emailContainer.querySelector(".emailAlert");
     if (emailAlert) {
       emailAlert.innerText = "Please enter a valid email";
     } else {
@@ -101,8 +102,8 @@ const validEmail = function (email) {
 };
 //////////////////////////////********************CHECK IF THE PASSWORD IS VALID************************************////////////////////////////////////////////////////
 const validPassword = function (password) {
+  let passwordAlert = passwordContainer.querySelector(".passwordAlert");
   if (password.length <= 8) {
-    let passwordAlert = passwordContainer.querySelector(".passwordAlert");
     if (passwordAlert) {
       passwordAlert.innerText = "A password must be at least 8 characters";
     } else {
@@ -114,13 +115,14 @@ const validPassword = function (password) {
       return false;
     }
   } else {
+    passwordAlert.innerText = "";
     return true;
   }
 };
 //////////////////////////////////////*****************CHECK IF THE USERNAMES INPUTS ARE NOT EMPTY*******************//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const validateUserName = function (firstName, lastName) {
+  let namesAlert = namesContainer.querySelector(".namesAlert");
   if (firstName.length === 0 || lastName.length === 0) {
-    let namesAlert = namesContainer.querySelector(".namesAlert");
     if (namesAlert) {
       namesAlert.innerText = "Please enter your first and last name";
     } else {
@@ -132,8 +134,10 @@ const validateUserName = function (firstName, lastName) {
     }
 
     return false;
+  } else {
+    namesAlert.innerText = "";
+    return true;
   }
-  return true;
 };
 
 //////////////////////////////////////**********************CLICK ON THE SIGN UP THE BUTTON***********************************************************************/////////////////////////////////////////////////////////////////
