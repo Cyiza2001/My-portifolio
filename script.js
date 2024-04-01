@@ -160,7 +160,7 @@ confirmSignUp.addEventListener("click", (e) => {
   );
 });
 /////////////////////////////////////////////////////********CLICK LISTENER ON THE LOWER LOGIN SPAN********************////////////////////////////////
-logInSpan.addEventListener("click!", function (e) {
+logInSpan.addEventListener("click", function (e) {
   signupPageContainer.classList.add("hidden");
   loginPageContainer.classList.remove("hidden");
 });
