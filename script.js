@@ -61,9 +61,8 @@ const addUser = function (firstName, lastName, email, password) {
     console.log("the user has already been added");
     return;
   }
-  if (!validPassword(password)) return;
-  if (!validEmail(email)) return;
-  // if (!validPassword(password)) return;
+
+  if (!validEmail(email) || !validPassword(password)) return;
   users[email] = {
     firstName: firstName,
     lastName: lastName,
@@ -72,6 +71,7 @@ const addUser = function (firstName, lastName, email, password) {
   };
   console.log(users);
 };
+
 //////////////*************VALID EMAIL FUNCTION *******************************////////////////////////////
 
 const validEmail = function (email) {
@@ -87,13 +87,16 @@ const validEmail = function (email) {
 };
 
 const validPassword = function (password) {
-  if (!password.length >= 8) {
+  if (password.length <= 8) {
     const passwordAlert = document.createElement("div");
     passwordContainer.appendChild(passwordAlert);
     console.log(passwordContainer);
     passwordAlert.innerText = "A password must be at least 8 characters";
+    console.log(password.length);
     return false;
-  } else return true;
+  } else {
+    return true;
+  }
 };
 confirmSignUp.addEventListener("click", (e) => {
   addUser(
