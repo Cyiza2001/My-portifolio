@@ -21,6 +21,7 @@ const passwordContainer = document.querySelector(".password");
 const namesContainer = document.querySelector(".names");
 const firstNameContainer = document.querySelector(".first-name-container");
 const signUpInnerButton = document.querySelector(".signup-inner-button");
+const logInSpan = document.querySelector(".login-span");
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -35,9 +36,11 @@ const toggleIcons = function (opacity, menu, cross) {
 const handleSiblings = function (link) {
   console.log("wahiye sha");
   if (link.classList.contains("upperNavLinks")) {
-    const siblings = link
-      .closest(".signup-login")
-      .querySelectorAll(".upperNavLinks");
+    const siblings = document.querySelectorAll(".upperNavLinks");
+
+    // link
+    //   .closest(".signup-login")
+    //   .querySelectorAll(".upperNavLinks");
     for (let i = 0; i < siblings.length; i++) {
       const el = siblings[i];
       // el.classList.toggle("active-upperNavLink", el === link);
@@ -155,6 +158,11 @@ confirmSignUp.addEventListener("click", (e) => {
     emailInput.value,
     passwordInput.value
   );
+});
+/////////////////////////////////////////////////////********CLICK LISTENER ON THE LOWER LOGIN SPAN********************////////////////////////////////
+logInSpan.addEventListener("click!", function (e) {
+  signupPageContainer.classList.add("hidden");
+  loginPageContainer.classList.remove("hidden");
 });
 
 ////////////HIDE THE CROSS ICON//////
