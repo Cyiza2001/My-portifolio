@@ -18,6 +18,8 @@ const passwordInput = document.querySelector(".password-input");
 const confirmSignUp = document.querySelector(".button-confirm-signup");
 const emailContainer = document.querySelector(".email");
 const passwordContainer = document.querySelector(".password");
+const namesContainer = document.querySelector(".names");
+const firstNameContainer = document.querySelector(".first-name-container");
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -62,7 +64,12 @@ const addUser = function (firstName, lastName, email, password) {
     return;
   }
 
-  if (!validEmail(email) || !validPassword(password)) return;
+  if (
+    !validateUserName(firstName, lastName) ||
+    !validEmail(email) ||
+    !validPassword(password)
+  )
+    return;
   users[email] = {
     firstName: firstName,
     lastName: lastName,
@@ -92,7 +99,7 @@ const validEmail = function (email) {
     return false;
   }
 };
-
+//////////////////////////////********************CHECK IF THE PASSWORD IS VALID************************************////////////////////////////////////////////////////
 const validPassword = function (password) {
   if (password.length <= 8) {
     let passwordAlert = passwordContainer.querySelector(".passwordAlert");
@@ -110,6 +117,26 @@ const validPassword = function (password) {
     return true;
   }
 };
+//////////////////////////////////////*****************CHECK IF THE USERNAMES INPUTS ARE NOT EMPTY*******************//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const validateUserName = function (firstName, lastName) {
+  if (firstName.length === 0 || lastName.length === 0) {
+    let namesAlert = namesContainer.querySelector(".namesAlert");
+    if (namesAlert) {
+      namesAlert.innerText = "Please enter your first and last name";
+    } else {
+      namesAlert = document.createElement("div");
+      namesAlert.classList.add("namesAlert");
+      namesContainer.appendChild(namesAlert);
+      namesAlert.innerText = "Please enter your first and last name";
+      console.log(namesContainer);
+    }
+
+    return false;
+  }
+  return true;
+};
+
+//////////////////////////////////////**********************CLICK ON THE SIGN UP THE BUTTON***********************************************************************/////////////////////////////////////////////////////////////////
 confirmSignUp.addEventListener("click", (e) => {
   addUser(
     firstNameInput.value,

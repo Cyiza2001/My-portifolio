@@ -39,11 +39,21 @@ main {
 }
 .names {
   display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+
+  /* margin: 10px 20px; */
+}
+.names-to-row {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   /* margin: 10px 20px; */
 }
+/* .namesAlert {
+  align-self: flex-end;
+} */
 .names input {
   height: 50px;
   padding-left: 10px;
