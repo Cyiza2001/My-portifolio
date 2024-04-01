@@ -61,7 +61,9 @@ const handleSiblings = function (link) {
 };
 
 //////////////*************SIGN UP FUNCTION *********//////////////////////////////////////////
+JSON.parse(localStorage.getItem("user"));
 const users = {};
+
 const addUser = function (firstName, lastName, email, password) {
   if (users.hasOwnProperty(email)) {
     console.log("the user has already been added");
@@ -86,7 +88,7 @@ const addUser = function (firstName, lastName, email, password) {
   setTimeout(function () {
     signUpAlert.innerText = "";
   }, 3000);
-  console.log(signUpInnerButton);
+  console.log(users);
 };
 
 //////////////*************VALID EMAIL FUNCTION *******************************////////////////////////////
@@ -158,6 +160,7 @@ confirmSignUp.addEventListener("click", (e) => {
     emailInput.value,
     passwordInput.value
   );
+  localStorage.setItem("user", JSON.stringify(users));
 });
 /////////////////////////////////////////////////////********CLICK LISTENER ON THE LOWER LOGIN SPAN********************////////////////////////////////
 logInSpan.addEventListener("click", function (e) {
