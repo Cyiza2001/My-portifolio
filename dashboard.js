@@ -49,6 +49,7 @@ const blogButton = document.querySelector("#manage-blogs");
 const blogsContainer = document.querySelector(".blogs-container");
 const logoutButton = document.querySelector("#logout-id");
 const dashboardContainer = document.querySelector(".dashboard-container");
+const adminButton = document.querySelector(".admin-button");
 
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
@@ -56,6 +57,21 @@ const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
   blogsContainer.style.display = blogs;
   notificationsContainer.style.display = notification;
   messageContainer.style.display = message;
+};
+const activateUi = function (
+  dashboard,
+  admin,
+  blogs,
+  messages,
+  notifications,
+  logout
+) {
+  myDashboard.style.color = dashboard;
+  adminButton.style.color = admin;
+  blogButton.style.color = blogs;
+  messageButtons.style.color = messages;
+  notificationButtons.style.color = notifications;
+  logoutButton.style.color = logout;
 };
 
 /////////////////////INITIAL CONDITIONS//////////////////////
@@ -66,20 +82,24 @@ hideAndDisplayUi("flex", "none", "none", "none");
 messageButtons.forEach((messageButton) => {
   messageButton.addEventListener("click", function (e) {
     e.preventDefault();
+    messageButton.style.color = "rgb(183, 17, 136)";
 
     hideAndDisplayUi("none", "none", "none", "flex");
   });
 });
 myDashboard.addEventListener("click", function () {
+  activateUi("rgb(183, 17, 136)", "black", "black", "black", "black", "black");
   hideAndDisplayUi("flex", "none", "none", "none");
 });
 notificationButtons.forEach((button) => {
   button.addEventListener("click", function () {
+    button.style.color = "rgb(183, 17, 136)";
     hideAndDisplayUi("none", "none", "flex", "none");
   });
 });
 
 blogButton.addEventListener("click", function () {
+  activateUi("black", "black", "rgb(183, 17, 136)", "black", "black", "black");
   hideAndDisplayUi("none", "flex", "none", "none");
 });
 logoutButton.addEventListener("click", function () {
