@@ -50,12 +50,6 @@ const blogsContainer = document.querySelector(".blogs-container");
 const logoutButton = document.querySelector("#logout-id");
 const dashboardContainer = document.querySelector(".dashboard-container");
 
-/////////////////////INITIAL CONDITIONS//////////////////////
-// messageContainer.style.display = "none";
-// notificationsContainer.style.display = "none";
-// blogsContainer.style.display = "none";
-hideAndDisplayUi("flex", "none", "none", "none");
-
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
   rightSection.style.display = rightsection;
@@ -63,6 +57,8 @@ const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
   notificationsContainer.style.display = notification;
   messageContainer.style.display = message;
 };
+
+/////////////////////INITIAL CONDITIONS//////////////////////
 hideAndDisplayUi("flex", "none", "none", "none");
 
 //////////////////////////////////////////////////////////////////
