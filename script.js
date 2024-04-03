@@ -22,6 +22,7 @@ const namesContainer = document.querySelector(".names");
 const firstNameContainer = document.querySelector(".first-name-container");
 const signUpInnerButton = document.querySelector(".signup-inner-button");
 const logInSpan = document.querySelector(".login-span");
+const lowerLoginButton = document.querySelector(".lower-login-id");
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -61,8 +62,7 @@ const handleSiblings = function (link) {
 };
 
 //////////////*************SIGN UP FUNCTION *********//////////////////////////////////////////
-JSON.parse(localStorage.getItem("user"));
-const users = {};
+const users = JSON.parse(localStorage.getItem("users")) || {};
 
 const addUser = function (firstName, lastName, email, password) {
   if (users.hasOwnProperty(email)) {
@@ -160,13 +160,25 @@ confirmSignUp.addEventListener("click", (e) => {
     emailInput.value,
     passwordInput.value
   );
-  localStorage.setItem("user", JSON.stringify(users));
+  localStorage.setItem("users", JSON.stringify(users));
 });
 /////////////////////////////////////////////////////********CLICK LISTENER ON THE LOWER LOGIN SPAN********************////////////////////////////////
 logInSpan.addEventListener("click", function (e) {
   signupPageContainer.classList.add("hidden");
   loginPageContainer.classList.remove("hidden");
 });
+/////////////////////////////////////////////////**********CLICK THE LOWER LOGIN BUTTON*********************//////////////////////
+
+lowerLoginButton.addEventListener("click", function (e) {
+  for (let key in users) {
+    if (
+      users[key].email === emailInput.value &&
+      users[key].password === passwordInput.value
+    ) {
+    }
+  }
+});
+////////////////////////////////////////////CLICK ON THE CROSS ICON////////////////////////////////////////////
 
 ////////////HIDE THE CROSS ICON//////
 crossIcon.style.display = "none";
