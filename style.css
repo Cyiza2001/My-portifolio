@@ -48,12 +48,8 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  /* margin: 10px 20px; */
 }
-/* .namesAlert {
-  align-self: flex-end;
-} */
+
 .names input {
   height: 50px;
   padding-left: 10px;
@@ -64,7 +60,6 @@ main {
 .email input {
   display: flex;
   flex-direction: row;
-  /* margin: 0 20px; */
   width: 100%;
   height: 50px;
   padding-left: 10px;
@@ -85,7 +80,6 @@ main {
 .signup-inner-button button {
   display: flex;
   width: 100%;
-  /* background-color: green; */
   background-color: rgb(101, 2, 101);
   border: none;
   border-radius: 10px;
@@ -129,7 +123,6 @@ main {
   outline: none;
   cursor: pointer;
   position: relative;
-  /* Customize background color */
   background-color: white; /* Default background color (blue) */
   margin-right: 10px;
 }
@@ -149,21 +142,30 @@ input[type="checkbox"]:checked::after {
 }
 .active-upperNavLink {
   color: rgb(101, 2, 101);
-  /* text-decoration: underline; */
   border-bottom: 2px solid rgb(101, 2, 101);
 }
 .hidden {
-  /* visibility: hidden; */
   display: none !important;
 }
 header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   height: 60px;
   width: 100%;
   background-color: rgb(0, 0, 18);
+}
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-left: 15%;
+}
+.header-all-buttons {
+  width: 80%;
 }
 
 header button {
@@ -175,6 +177,7 @@ header button {
 header a {
   color: white;
   text-decoration: none;
+  transition: transform 0.9s ease;
 }
 
 header a:hover {
@@ -182,10 +185,25 @@ header a:hover {
   background-color: white;
   color: rgb(0, 0, 18);
   padding: 15px;
+  transform: scale(1);
 }
-.cross-img,
-.menu-img {
+
+header .menu-img {
   display: none;
+}
+
+.header-profile {
+  display: flex;
+  width: 10%;
+  margin-left: 12%;
+  margin-right: 20px;
+  justify-content: end;
+  color: white;
+}
+.header-profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .intro {

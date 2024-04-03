@@ -59,6 +59,7 @@ const handleSiblings = function (link) {
 };
 
 //////////////*************SIGN UP FUNCTION *********//////////////////////////////////////////
+
 const users = JSON.parse(localStorage.getItem("users")) || {};
 
 const addUser = function (firstName, lastName, email, password) {
@@ -173,11 +174,13 @@ lowerLoginButton.addEventListener("click", function (e) {
       users[key].email === "ndanyuzwealexandre@gmail.com" &&
       users[key].password === "ndanyuzwe2"
     ) {
-     
       window.location.href = "dashboard.html";
+    } else if (
+      users[key].email === emailInput.value &&
+      users[key].password === passwordInput.value
+    ) {
     }
-    else if ( users[key].email === emailInput.value &&
-    users[key].password === passwordInput.value ) {
+    // else
   }
 });
 ////////////////////////////////////////////CLICK ON THE CROSS ICON////////////////////////////////////////////
