@@ -54,7 +54,6 @@ const dashboardContainer = document.querySelector(".dashboard-container");
 messageContainer.style.display = "none";
 notificationsContainer.style.display = "none";
 blogsContainer.style.display = "none";
-console.log(messageButtons);
 
 //////////////////////////////////////////////////////////////////
 /////////////// EVENT LISTENERS//////////////////////////////
@@ -79,10 +78,10 @@ notificationButtons.forEach((button) => {
 });
 
 blogButton.addEventListener("click", function () {
-  blogsContainer.style.display = "block";
+  blogsContainer.style.display = "flex";
   rightSection.style.display = "none";
 });
 logoutButton.addEventListener("click", function () {
   console.log(dashboardContainer);
-  dashboardContainer.style.opacity = 0;
+  window.location.href = "index.html";
 });
