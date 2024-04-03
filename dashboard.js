@@ -51,37 +51,41 @@ const logoutButton = document.querySelector("#logout-id");
 const dashboardContainer = document.querySelector(".dashboard-container");
 
 /////////////////////INITIAL CONDITIONS//////////////////////
-messageContainer.style.display = "none";
-notificationsContainer.style.display = "none";
-blogsContainer.style.display = "none";
+// messageContainer.style.display = "none";
+// notificationsContainer.style.display = "none";
+// blogsContainer.style.display = "none";
+hideAndDisplayUi("flex", "none", "none", "none");
+
+///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
+const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
+  rightSection.style.display = rightsection;
+  blogsContainer.style.display = blogs;
+  notificationsContainer.style.display = notification;
+  messageContainer.style.display = message;
+};
+hideAndDisplayUi("flex", "none", "none", "none");
 
 //////////////////////////////////////////////////////////////////
 /////////////// EVENT LISTENERS//////////////////////////////
 messageButtons.forEach((messageButton) => {
   messageButton.addEventListener("click", function (e) {
     e.preventDefault();
-    rightSection.style.display = "none";
-    messageContainer.style.display = "block";
+
+    hideAndDisplayUi("none", "none", "none", "flex");
   });
 });
 myDashboard.addEventListener("click", function () {
-  rightSection.style.display = "block";
-  messageContainer.style.display = "none";
-  notificationsContainer.style.display = "none";
-  blogsContainer.style.display = "none";
+  hideAndDisplayUi("flex", "none", "none", "none");
 });
 notificationButtons.forEach((button) => {
   button.addEventListener("click", function () {
-    rightSection.style.display = "none";
-    notificationsContainer.style.display = "block";
+    hideAndDisplayUi("none", "none", "flex", "none");
   });
 });
 
 blogButton.addEventListener("click", function () {
-  blogsContainer.style.display = "flex";
-  rightSection.style.display = "none";
+  hideAndDisplayUi("none", "flex", "none", "none");
 });
 logoutButton.addEventListener("click", function () {
-  console.log(dashboardContainer);
   window.location.href = "index.html";
 });
