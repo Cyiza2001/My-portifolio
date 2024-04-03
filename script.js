@@ -22,7 +22,7 @@ const namesContainer = document.querySelector(".names");
 const firstNameContainer = document.querySelector(".first-name-container");
 const signUpInnerButton = document.querySelector(".signup-inner-button");
 const logInSpan = document.querySelector(".login-span");
-const lowerLoginButton = document.querySelector(".lower-login-id");
+const lowerLoginButton = document.querySelector("#lower-login-id");
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -35,7 +35,6 @@ const toggleIcons = function (opacity, menu, cross) {
 /////***************HANDLING THE CLICKS ON SIBLINGS*********************************/////////////////////////////
 
 const handleSiblings = function (link) {
-  console.log("wahiye sha");
   if (link.classList.contains("upperNavLinks")) {
     const siblings = document.querySelectorAll(".upperNavLinks");
 
@@ -46,13 +45,11 @@ const handleSiblings = function (link) {
       const el = siblings[i];
       // el.classList.toggle("active-upperNavLink", el === link);
       if (el.getAttribute("id") === "signupNavLink" && el === link) {
-        console.log(link);
         // el.classList.toggle("active-upperNavLink");
         signupPageContainer.classList.remove("hidden");
         loginPageContainer.classList.add("hidden");
       }
       if (el.getAttribute("id") === "loginNavLink" && el === link) {
-        console.log(link);
         // el.classList.toggle("active-upperNavLink");
         signupPageContainer.classList.add("hidden");
         loginPageContainer.classList.remove("hidden");
@@ -171,11 +168,16 @@ logInSpan.addEventListener("click", function (e) {
 
 lowerLoginButton.addEventListener("click", function (e) {
   for (let key in users) {
+    console.log("urihasi");
     if (
-      users[key].email === emailInput.value &&
-      users[key].password === passwordInput.value
+      users[key].email === "ndanyuzwealexandre@gmail.com" &&
+      users[key].password === "ndanyuzwe2"
     ) {
+     
+      window.location.href = "dashboard.html";
     }
+    else if ( users[key].email === emailInput.value &&
+    users[key].password === passwordInput.value ) {
   }
 });
 ////////////////////////////////////////////CLICK ON THE CROSS ICON////////////////////////////////////////////
