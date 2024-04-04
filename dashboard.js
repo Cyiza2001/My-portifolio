@@ -50,14 +50,12 @@ const blogsContainer = document.querySelector(".blogs-container");
 const logoutButton = document.querySelector("#logout-id");
 const dashboardContainer = document.querySelector(".dashboard-container");
 const adminButton = document.querySelector(".admin-button");
-const sendMessageButton = document.querySelector("#send-message-button-id");
-const contactUsName = document.querySelector("#input-name-id");
-const contactUsEmail = document.querySelector("#input-email-id");
-const contactUsPhone = document.querySelector("#input-phone-id");
-const contactUsMessage = document.querySelector("#input-message-id");
+const tableOfMessages = document.querySelector("#message-table-body");
 /////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
-let buttonNotify;
+let notificationButton;
 let messageButton;
+const contactusData = JSON.parse(localStorage.getItem("contactus-data"));
+tableOfMessages.innerHTML = "";
 
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
@@ -78,7 +76,7 @@ const activateUi = function (
   adminButton.style.color = admin;
   blogButton.style.color = blogs;
   messageButton.style.color = messages;
-  buttonNotify.style.color = notifications;
+  notificationButton.style.color = notifications;
   logoutButton.style.color = logout;
 };
 
@@ -113,7 +111,7 @@ adminButton.addEventListener("click", function () {
 });
 notificationButtons.forEach((button) => {
   button.addEventListener("click", function () {
-    buttonNotify = button;
+    notificationButton = button;
     activateUi(
       "black",
       "black",
@@ -123,7 +121,6 @@ notificationButtons.forEach((button) => {
       "black"
     );
     hideAndDisplayUi("none", "none", "flex", "none");
-    setTimeout(() => console.log("kanze turebe sha"), 3000);
   });
 });
 
@@ -133,4 +130,20 @@ blogButton.addEventListener("click", function () {
 });
 logoutButton.addEventListener("click", function () {
   window.location.href = "index.html";
+});
+
+///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////////
+
+contactusData.forEach((data, i) => {
+  const html = ` 
+        <tr>
+            <td id="contacter-order-id">${i + 1}</td>
+            <td id="contactor-name-id">${data.name}</td>
+            <td id="contactor-number-id">${data.phone}</td>
+            <td id="contactor-email-id">${data.email}</td>
+            <td id="contactor-message-id">${data.message}</td>
+            <td id="delete-contactor-id"><img src="icons8-delete-30.png" alt="Delete icon"></td>
+        </tr>
+      `;
+  tableOfMessages.insertAdjacentHTML("beforebegin", html);
 });

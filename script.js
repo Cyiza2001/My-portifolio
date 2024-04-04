@@ -23,6 +23,14 @@ const firstNameContainer = document.querySelector(".first-name-container");
 const signUpInnerButton = document.querySelector(".signup-inner-button");
 const logInSpan = document.querySelector(".login-span");
 const lowerLoginButton = document.querySelector("#lower-login-id");
+const sendMessageButton = document.querySelector("#send-message-button-id");
+const contactUsName = document.querySelector("#input-name-id");
+const contactUsEmail = document.querySelector("#input-email-id");
+const contactUsPhone = document.querySelector("#input-phone-id");
+const contactUsMessage = document.querySelector("#input-message-id");
+
+///////////////////////////////////***************GLOBAL VARIABLES*******************************************//////////////////////////////////
+const contactorsArray = [];
 
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
@@ -30,6 +38,16 @@ const toggleIcons = function (opacity, menu, cross) {
   header.style.opacity = opacity;
   menuIcon.style.display = menu;
   crossIcon.style.display = cross;
+};
+////////////////GET THE DATA FROM CONTACT US SECTUON////////////////////////////////////////////////////////////////
+const getContactorsData = function (name, phone, email, message) {
+  const userData = {
+    name: name,
+    phone: phone,
+    email: email,
+    message: message,
+  };
+  contactorsArray.push(userData);
 };
 
 /////***************HANDLING THE CLICKS ON SIBLINGS*********************************/////////////////////////////
@@ -217,6 +235,17 @@ buttonSignupLogin.addEventListener("click", function (e) {
   sectionSignupLogin.style.display = "flex";
   signupPageContainer.style.display = "flex";
 });
+sendMessageButton.addEventListener("click", function (e) {
+  getContactorsData(
+    contactUsName.value,
+    contactUsPhone.value,
+    contactUsEmail.value,
+    contactUsMessage.value
+  );
+  localStorage.setItem("contactus-data", JSON.stringify(contactorsArray));
+});
+console.log(localStorage.getItem("contactus-data"));
+
 ///////////////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
 
 //HIDE THE PAGE WHENEVER ONE CLICKS OUTSIDE OF THE LOGIN PAGE//////
