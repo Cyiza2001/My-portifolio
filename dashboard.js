@@ -50,6 +50,9 @@ const blogsContainer = document.querySelector(".blogs-container");
 const logoutButton = document.querySelector("#logout-id");
 const dashboardContainer = document.querySelector(".dashboard-container");
 const adminButton = document.querySelector(".admin-button");
+/////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
+let buttonNotify;
+let messageButton;
 
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
@@ -69,20 +72,28 @@ const activateUi = function (
   myDashboard.style.color = dashboard;
   adminButton.style.color = admin;
   blogButton.style.color = blogs;
-  messageButtons.style.color = messages;
-  notificationButtons.style.color = notifications;
+  messageButton.style.color = messages;
+  buttonNotify.style.color = notifications;
   logoutButton.style.color = logout;
 };
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 hideAndDisplayUi("flex", "none", "none", "none");
 
-//////////////////////////////////////////////////////////////////
-/////////////// EVENT LISTENERS//////////////////////////////
-messageButtons.forEach((messageButton) => {
+// //////////////////////////////////////////////////////////////////
+// /////////////// EVENT LISTENERS//////////////////////////////
+messageButtons.forEach((button) => {
+  messageButton = button;
   messageButton.addEventListener("click", function (e) {
     e.preventDefault();
-    messageButton.style.color = "rgb(183, 17, 136)";
+    activateUi(
+      "black",
+      "black",
+      "black",
+      "rgb(183, 17, 136)",
+      "black",
+      "black"
+    );
 
     hideAndDisplayUi("none", "none", "none", "flex");
   });
@@ -92,6 +103,7 @@ myDashboard.addEventListener("click", function () {
   hideAndDisplayUi("flex", "none", "none", "none");
 });
 notificationButtons.forEach((button) => {
+  buttonNotify = button;
   button.addEventListener("click", function () {
     button.style.color = "rgb(183, 17, 136)";
     hideAndDisplayUi("none", "none", "flex", "none");
