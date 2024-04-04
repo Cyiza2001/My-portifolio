@@ -145,5 +145,6 @@ contactusData.forEach((data, i) => {
             <td id="delete-contactor-id"><img src="icons8-delete-30.png" alt="Delete icon"></td>
         </tr>
       `;
+  if ((i + 1) % 2 === 0) html.style.backgroundColor = " #dddddd";
   tableOfMessages.insertAdjacentHTML("beforebegin", html);
 });

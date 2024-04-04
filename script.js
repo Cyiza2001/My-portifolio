@@ -243,8 +243,12 @@ sendMessageButton.addEventListener("click", function (e) {
     contactUsMessage.value
   );
   localStorage.setItem("contactus-data", JSON.stringify(contactorsArray));
+  contactUsName.value =
+    contactUsPhone.value =
+    contactUsEmail.value =
+    contactUsMessage.value =
+      "";
 });
-console.log(localStorage.getItem("contactus-data"));
 
 ///////////////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
 
