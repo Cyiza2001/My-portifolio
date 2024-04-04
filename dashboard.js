@@ -83,9 +83,9 @@ hideAndDisplayUi("flex", "none", "none", "none");
 // //////////////////////////////////////////////////////////////////
 // /////////////// EVENT LISTENERS//////////////////////////////
 messageButtons.forEach((button) => {
-  messageButton = button;
-  messageButton.addEventListener("click", function (e) {
+  button.addEventListener("click", function (e) {
     e.preventDefault();
+    messageButton = button;
     activateUi(
       "black",
       "black",
@@ -102,11 +102,23 @@ myDashboard.addEventListener("click", function () {
   activateUi("rgb(183, 17, 136)", "black", "black", "black", "black", "black");
   hideAndDisplayUi("flex", "none", "none", "none");
 });
+adminButton.addEventListener("click", function () {
+  activateUi("black", "rgb(183, 17, 136)", "black", "black", "black", "black");
+  hideAndDisplayUi("none", "flex", "none", "none");
+});
 notificationButtons.forEach((button) => {
-  buttonNotify = button;
   button.addEventListener("click", function () {
-    button.style.color = "rgb(183, 17, 136)";
+    buttonNotify = button;
+    activateUi(
+      "black",
+      "black",
+      "black",
+      "black",
+      "rgb(183, 17, 136)",
+      "black"
+    );
     hideAndDisplayUi("none", "none", "flex", "none");
+    setTimeout(() => console.log("kanze turebe sha"), 3000);
   });
 });
 
