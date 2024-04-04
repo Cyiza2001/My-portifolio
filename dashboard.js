@@ -50,6 +50,11 @@ const blogsContainer = document.querySelector(".blogs-container");
 const logoutButton = document.querySelector("#logout-id");
 const dashboardContainer = document.querySelector(".dashboard-container");
 const adminButton = document.querySelector(".admin-button");
+const sendMessageButton = document.querySelector("#send-message-button-id");
+const contactUsName = document.querySelector("#input-name-id");
+const contactUsEmail = document.querySelector("#input-email-id");
+const contactUsPhone = document.querySelector("#input-phone-id");
+const contactUsMessage = document.querySelector("#input-message-id");
 /////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
 let buttonNotify;
 let messageButton;

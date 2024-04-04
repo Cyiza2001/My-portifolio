@@ -520,19 +520,25 @@
             </div>
             <div class="input-types">
               <div class="upper-input-types">
-                <input type="text" placeholder="Name" />
-                <input class="tel-input" type="tel" placeholder="Phone" />
-                <input type="text" placeholder="Email" />
+                <input type="text" placeholder="Name" id="input-name-id" />
+                <input
+                  class="tel-input"
+                  type="tel"
+                  placeholder="Phone"
+                  id="input-phone-id"
+                />
+                <input type="text" placeholder="Email" id="input-email-id" />
               </div>
               <div>
                 <input
                   class="message-input-type"
                   type="text"
                   placeholder="Message"
+                  id="input-message-id"
                 />
               </div>
             </div>
-            <div><button>SEND MESSAGE</button></div>
+            <div><button id="send-message-button-id">SEND MESSAGE</button></div>
           </div>
         </section>
         <section class="copy-right">
@@ -561,5 +567,6 @@
       </main>
     </div>
     <script src="script.js"></script>
+    <script src="dashboard.js"></script>
   </body>
 </html>
