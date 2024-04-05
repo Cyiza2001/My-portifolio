@@ -131,12 +131,12 @@ blogButton.addEventListener("click", function () {
 logoutButton.addEventListener("click", function () {
   window.location.href = "index.html";
 });
-
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////////
 
 contactusData.forEach((data, i) => {
+  const backgroundColor = (i + 1) % 2 === 0 ? "#dddddd" : "";
   const html = ` 
-        <tr>
+        <tr style= "background-color: ${backgroundColor};">
             <td id="contacter-order-id">${i + 1}</td>
             <td id="contactor-name-id">${data.name}</td>
             <td id="contactor-number-id">${data.phone}</td>
@@ -145,6 +145,6 @@ contactusData.forEach((data, i) => {
             <td id="delete-contactor-id"><img src="icons8-delete-30.png" alt="Delete icon"></td>
         </tr>
       `;
-  if ((i + 1) % 2 === 0) html.style.backgroundColor = " #dddddd";
+
   tableOfMessages.insertAdjacentHTML("beforebegin", html);
 });
