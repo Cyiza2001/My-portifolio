@@ -57,8 +57,7 @@ let notificationButton;
 let messageButton;
 const contactusData = JSON.parse(localStorage.getItem("contactus-data"));
 tableOfMessages.innerHTML = "";
-const orderTdElements = [];
-
+// const orderTdElements = [];
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
   rightSection.style.display = rightsection;
@@ -81,23 +80,6 @@ const activateUi = function (
   notificationButton.style.color = notifications;
   logoutButton.style.color = logout;
 };
-
-const deleteArow = function (rowNumber) {
-  // const rows = table.querySelectorAll("tr");
-  // rows.forEach((row, i) => {
-  //   if (i + 1 === rowNumber) {
-  //     row.style.display = "none";
-  //     i--;
-  //   }
-  // });
-  // return rows;
-  orderTdElements.forEach((row, i) => {
-    if (i + 1 === rowNumber) {
-      table.deleteRow(rowNumber);
-    }
-  });
-};
-console.log(deleteRow());
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 hideAndDisplayUi("flex", "none", "none", "none");
@@ -151,22 +133,37 @@ logoutButton.addEventListener("click", function () {
   window.location.href = "index.html";
 });
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////////
-contactusData.forEach((data, i) => {
-  const backgroundColor = (i + 1) % 2 === 0 ? "#dddddd" : "";
+let n;
+let isDeleted = false;
+const deleteArow = function (rowNumber) {
+  table.deleteRow(rowNumber);
+  isDeleted = true;
+  const orderTd = document.querySelector("#contactor-order-id");
+  while (n >= 1) {
+    orderTd.innerHTML = orderTd.innerHTML - 1;
+    n = orderTd.innerHTML;
+  }
+  return n;
+};
+contactusData.forEach((data, order) => {
+  n = order;
+  order = isDeleted ? n : order;
+  const backgroundColor = (order + 1) % 2 === 0 ? "#dddddd" : "";
+
   const html = ` 
         <tr style= "background-color: ${backgroundColor};">
-            <td id="contactor-order-id">${i + 1}</td>
+            <td id="contactor-order-id">${order + 1}</td>
             <td id="contactor-name-id">${data.name}</td>
             <td id="contactor-number-id">${data.phone}</td>
             <td id="contactor-email-id">${data.email}</td>
             <td id="contactor-message-id">${data.message}</td>
-            <td id="delete-contactor-id"><button onclick="table.deleteRow(${
-              i + 1
+            <td id="delete-contactor-id"><button onclick="deleteArow(${
+              order + 1
             })" ><img src="icons8-delete-30.png" alt="Delete icon"><button/></td>
         </tr>
       `;
-
+  console.log(order);
   tableOfMessages.insertAdjacentHTML("beforebegin", html);
-  const orderTd = document.querySelector("#contactor-order-id");
-  orderTdElements.push(orderTd);
+  // const orderTd = document.querySelector("#contactor-order-id");
+  // orderTdElements.push(orderTd);
 });
