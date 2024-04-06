@@ -33,8 +33,6 @@ const contactUsInputs = document.querySelector(".input-types");
 ///////////////////////////////////***************GLOBAL VARIABLES*******************************************//////////////////////////////////
 const contactorsArray = [];
 const blogsArray = JSON.parse(localStorage.getItem("blogs-Array"));
-console.log(blogsArray);
-localStorage.removeItem("blogs-Array");
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
 const toggleIcons = function (opacity, menu, cross) {
@@ -264,8 +262,21 @@ sendMessageButton.addEventListener("click", function (e) {
         "";
   }
 });
-
-///////////////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
+blogsArray.forEach((blog) => {
+  const html = `    <div class="single-blog">
+  <div>
+    <img src="${blog.blogsPic}" alt="recent app we created" />
+  </div>
+  <div>${blog.title}</div>
+  // <div class="technology-used">Using JavaScript Technologies</div>
+  <div class="blog-details">
+ ${blog.description}
+  </div>
+</div>`;
+  const wholeBlog = document.querySelector(".whole-blog");
+  wholeBlog.insertAdjacentHTML("beforebegin", html);
+});
+/////////.//////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
 
 //HIDE THE PAGE WHENEVER ONE CLICKS OUTSIDE OF THE LOGIN PAGE//////
 document.body.addEventListener("click", function (event) {
