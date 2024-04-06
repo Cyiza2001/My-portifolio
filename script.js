@@ -28,6 +28,7 @@ const contactUsName = document.querySelector("#input-name-id");
 const contactUsEmail = document.querySelector("#input-email-id");
 const contactUsPhone = document.querySelector("#input-phone-id");
 const contactUsMessage = document.querySelector("#input-message-id");
+const contactUsInputs = document.querySelector(".input-types");
 
 ///////////////////////////////////***************GLOBAL VARIABLES*******************************************//////////////////////////////////
 const contactorsArray = [];
@@ -236,18 +237,29 @@ buttonSignupLogin.addEventListener("click", function (e) {
   signupPageContainer.style.display = "flex";
 });
 sendMessageButton.addEventListener("click", function (e) {
-  getContactorsData(
-    contactUsName.value,
-    contactUsPhone.value,
-    contactUsEmail.value,
-    contactUsMessage.value
-  );
-  localStorage.setItem("contactus-data", JSON.stringify(contactorsArray));
-  contactUsName.value =
-    contactUsPhone.value =
-    contactUsEmail.value =
-    contactUsMessage.value =
-      "";
+  if (
+    contactUsName.value === "" ||
+    contactUsPhone.value === "" ||
+    contactUsEmail.value == "" ||
+    contactUsMessage.value === ""
+  ) {
+    contactUsAlert = document.createElement("div");
+    contactUsInputs.appendChild(contactUsAlert);
+    contactUsAlert.innerText = "Please fill in all the fields";
+  } else {
+    getContactorsData(
+      contactUsName.value,
+      contactUsPhone.value,
+      contactUsEmail.value,
+      contactUsMessage.value
+    );
+    localStorage.setItem("contactus-data", JSON.stringify(contactorsArray));
+    contactUsName.value =
+      contactUsPhone.value =
+      contactUsEmail.value =
+      contactUsMessage.value =
+        "";
+  }
 });
 
 ///////////////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
