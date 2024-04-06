@@ -54,7 +54,7 @@ const tableOfMessages = document.querySelector("#message-table-body");
 const table = document.querySelector("table");
 const blogTitleInput = document.querySelector("#blog-title-input");
 const blogUploadInput = document.querySelector("#blog-upload-input");
-const richTextEditor = document.querySelector("#editor");
+const richTextEditor = document.querySelector("#editor .ql-editor");
 const postBlogButton = document.querySelector(".post-blog");
 
 /////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
@@ -160,7 +160,7 @@ postBlogButton.addEventListener("click", function () {
   getBlogsData(
     blogUploadInput.value,
     blogTitleInput.value,
-    richTextEditor.value
+    richTextEditor.textContent
   );
 });
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////
