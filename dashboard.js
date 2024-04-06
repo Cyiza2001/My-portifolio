@@ -57,6 +57,7 @@ let notificationButton;
 let messageButton;
 const contactusData = JSON.parse(localStorage.getItem("contactus-data"));
 tableOfMessages.innerHTML = "";
+console.log(contactusData);
 // const orderTdElements = [];
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
@@ -82,6 +83,8 @@ const activateUi = function (
 };
 const deleteArow = function (rowNumber) {
   table.deleteRow(rowNumber);
+  contactusData.splice(rowNumber - 1, 1);
+  localStorage.setItem("contactus-data", JSON.stringify(contactusData));
   for (let i = rowNumber; i < table.rows.length; i++) {
     const orderCell = table.rows[i].querySelector("#contactor-order-id");
     orderCell.textContent = parseInt(orderCell.textContent) - 1;
