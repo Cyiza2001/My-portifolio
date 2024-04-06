@@ -52,13 +52,17 @@ const dashboardContainer = document.querySelector(".dashboard-container");
 const adminButton = document.querySelector(".admin-button");
 const tableOfMessages = document.querySelector("#message-table-body");
 const table = document.querySelector("table");
+const blogTitleInput = document.querySelector("#blog-title-input");
+const blogUploadInput = document.querySelector("#blog-upload-input");
+const richTextEditor = document.querySelector("#editor");
+const postBlogButton = document.querySelector(".post-blog");
+
 /////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
 let notificationButton;
 let messageButton;
 const contactusData = JSON.parse(localStorage.getItem("contactus-data"));
 tableOfMessages.innerHTML = "";
-console.log(contactusData);
-// const orderTdElements = [];
+const blogsArray = [];
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
   rightSection.style.display = rightsection;
@@ -92,7 +96,15 @@ const deleteArow = function (rowNumber) {
     table.rows[i].style.backgroundColor = `${backgroundColor}`;
   }
 };
-
+const getBlogsData = function (blogsPic, title, description) {
+  const blogsData = {
+    blogsPic: blogsPic,
+    title: title,
+    description: description,
+  };
+  blogsArray.push(blogsData);
+  localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
+};
 /////////////////////INITIAL CONDITIONS//////////////////////
 hideAndDisplayUi("flex", "none", "none", "none");
 
@@ -143,6 +155,13 @@ blogButton.addEventListener("click", function () {
 });
 logoutButton.addEventListener("click", function () {
   window.location.href = "index.html";
+});
+postBlogButton.addEventListener("click", function () {
+  getBlogsData(
+    blogUploadInput.value,
+    blogTitleInput.value,
+    richTextEditor.value
+  );
 });
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////
 

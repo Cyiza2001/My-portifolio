@@ -32,7 +32,8 @@ const contactUsInputs = document.querySelector(".input-types");
 
 ///////////////////////////////////***************GLOBAL VARIABLES*******************************************//////////////////////////////////
 const contactorsArray = [];
-
+const blogsArray = JSON.parse(localStorage.getItem("blogs-Array"));
+console.log(blogsArray);
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
 const toggleIcons = function (opacity, menu, cross) {
@@ -246,6 +247,7 @@ sendMessageButton.addEventListener("click", function (e) {
     contactUsAlert = document.createElement("div");
     contactUsInputs.appendChild(contactUsAlert);
     contactUsAlert.innerText = "Please fill in all the fields";
+    contactUsAlert.style.marginTop = "3px";
   } else {
     getContactorsData(
       contactUsName.value,

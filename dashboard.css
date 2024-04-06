@@ -616,10 +616,20 @@ header {
   opacity: 0;
   cursor: pointer;
 }
-.describe-blog {
+.post-blog {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
 }
+
+.post-blog button {
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(142, 139, 139, 0.36);
+}
+
 .blogs-title-input .descript-input {
   height: 120px;
 }
