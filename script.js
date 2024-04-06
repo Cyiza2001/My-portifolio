@@ -105,7 +105,6 @@ const addUser = function (firstName, lastName, email, password) {
   setTimeout(function () {
     signUpAlert.innerText = "";
   }, 3000);
-  console.log(users);
 };
 
 //////////////*************VALID EMAIL FUNCTION *******************************////////////////////////////
@@ -123,7 +122,6 @@ const validEmail = function (email) {
       emailAlert.classList.add("emailAlert");
       emailContainer.appendChild(emailAlert);
       emailAlert.innerText = "Please enter a valid email";
-      console.log(emailContainer);
     }
 
     return false;
@@ -140,7 +138,6 @@ const validPassword = function (password) {
       passwordAlert.classList.add("passwordAlert");
       passwordContainer.appendChild(passwordAlert);
       passwordAlert.innerText = "A password must be at least 8 characters";
-      console.log(passwordContainer);
       return false;
     }
   } else {
@@ -159,7 +156,6 @@ const validateUserName = function (firstName, lastName) {
       namesAlert.classList.add("namesAlert");
       namesContainer.appendChild(namesAlert);
       namesAlert.innerText = "Please enter your first and last name";
-      console.log(namesContainer);
     }
 
     return false;
@@ -188,7 +184,6 @@ logInSpan.addEventListener("click", function (e) {
 
 lowerLoginButton.addEventListener("click", function (e) {
   for (let key in users) {
-    console.log("urihasi");
     if (
       users[key].email === "ndanyuzwealexandre@gmail.com" &&
       users[key].password === "ndanyuzwe2"
@@ -199,7 +194,6 @@ lowerLoginButton.addEventListener("click", function (e) {
       users[key].password === passwordInput.value
     ) {
     }
-    // else
   }
 });
 ////////////////////////////////////////////CLICK ON THE CROSS ICON////////////////////////////////////////////
@@ -263,18 +257,17 @@ sendMessageButton.addEventListener("click", function (e) {
   }
 });
 blogsArray.forEach((blog) => {
-  const html = `    <div class="single-blog">
+  const html = ` <div class="single-blog">
   <div>
     <img src="${blog.blogsPic}" alt="recent app we created" />
   </div>
   <div>${blog.title}</div>
-  // <div class="technology-used">Using JavaScript Technologies</div>
   <div class="blog-details">
  ${blog.description}
   </div>
 </div>`;
   const wholeBlog = document.querySelector(".whole-blog");
-  wholeBlog.insertAdjacentHTML("beforebegin", html);
+  wholeBlog.insertAdjacentHTML("beforeend", html);
 });
 /////////.//////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
 
