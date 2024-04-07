@@ -162,15 +162,16 @@ postBlogButton.addEventListener("click", function () {
     blogTitleInput.value,
     richTextEditor.textContent
   );
+  const blogUpdate = document.querySelector("#singleBlog");
+  blogUpdate.innerHTML = "";
   blogsArray.forEach((blog) => {
     const html = `   <div class="single-blog-update">
   <div class="update-blog-title">${blog.title}</div>
   <div class="update-blog">update</div>
   <div class="delete-blog">Delete</div>
  </div>`;
-    document
-      .querySelector("#singleBlog")
-      .insertAdjacentHTML("afterbegin", html);
+
+    blogUpdate.insertAdjacentHTML("afterbegin", html);
   });
 
   // const selectedImage = blogUploadInput.files[0]; // Get the selected image file
