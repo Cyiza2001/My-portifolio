@@ -61,7 +61,7 @@ const postBlogButton = document.querySelector(".post-blog");
 let notificationButton;
 let messageButton;
 const contactusData = JSON.parse(localStorage.getItem("contactus-data"));
-const blogsArray = [];
+let blogsArray = [];
 
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
@@ -105,6 +105,23 @@ const getBlogsData = function (blogsPic, title, description) {
   blogsArray.push(blogsData);
   localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 };
+const functionUpdateBlog = function (formerTitle) {
+  blogsArray = blogsArray.map((blog) => {
+    if (blog.title === formerTitle) {
+      (blog.blogsPic = blogUploadInput.value),
+        (blog.title = blogTitleInput.value),
+        (blog.description = richTextEditor.textContent);
+    }
+    localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
+  });
+};
+const functionDeleteBlog = function (tobeDeleted) {
+  blogsArray = blogsArray.filter((blog) => {
+    if (blog.title === tobeDeleted) blogsArray.indexOf(blog) === -1;
+    localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
+  });
+};
+
 /////////////////////INITIAL CONDITIONS//////////////////////
 hideAndDisplayUi("flex", "none", "none", "none");
 
@@ -164,31 +181,15 @@ postBlogButton.addEventListener("click", function () {
   );
   const blogUpdate = document.querySelector("#singleBlog");
   blogUpdate.innerHTML = "";
-  blogsArray.forEach((blog) => {
+  blogsArray.forEach((blog, i) => {
     const html = `   <div class="single-blog-update">
   <div class="update-blog-title">${blog.title}</div>
-  <div class="update-blog">update</div>
-  <div class="delete-blog">Delete</div>
+  <div class="update-blog" onclick="functionUpdateBlog(${blog.title})"  >update</div>
+  <div class="delete-blog" onclick="functionDeleteBlog(${blog.title})">Delete</div>
  </div>`;
 
     blogUpdate.insertAdjacentHTML("afterbegin", html);
   });
-
-  // const selectedImage = blogUploadInput.files[0]; // Get the selected image file
-
-  // if (selectedImage) {
-  //   const blogTitle = blogTitleInput.value;
-  //   const blogDescription = richTextEditor.textContent;
-
-  //   // Call getBlogsData function with the selected image, title, and description
-  //   getBlogsData(selectedImage, blogTitle, blogDescription);
-
-  //   // Additional code to handle the selected image
-  //   console.log("Selected image:", selectedImage);
-  //   // Here you can call any functions or perform operations with the selected image
-  // } else {
-  //   console.log("No image selected.");
-  // }
 });
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////
 
