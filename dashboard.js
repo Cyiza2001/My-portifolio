@@ -60,9 +60,7 @@ const postBlogButton = document.querySelector(".post-blog");
 /////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
 let notificationButton;
 let messageButton;
-localStorage.removeItem("blogs-Array");
 const contactusData = JSON.parse(localStorage.getItem("contactus-data"));
-tableOfMessages.innerHTML = "";
 const blogsArray = [];
 
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
@@ -159,26 +157,37 @@ logoutButton.addEventListener("click", function () {
   window.location.href = "index.html";
 });
 postBlogButton.addEventListener("click", function () {
-  // getBlogsData(
-  //   blogUploadInput.value,
-  //   blogTitleInput.value,
-  //   richTextEditor.textContent
-  // );
-  const selectedImage = blogUploadInput.files[0]; // Get the selected image file
+  getBlogsData(
+    blogUploadInput.value,
+    blogTitleInput.value,
+    richTextEditor.textContent
+  );
+  blogsArray.forEach((blog) => {
+    const html = `   <div class="single-blog-update">
+  <div class="update-blog-title">${blog.title}</div>
+  <div class="update-blog">update</div>
+  <div class="delete-blog">Delete</div>
+ </div>`;
+    document
+      .querySelector("#singleBlog")
+      .insertAdjacentHTML("afterbegin", html);
+  });
 
-  if (selectedImage) {
-    const blogTitle = blogTitleInput.value;
-    const blogDescription = richTextEditor.textContent;
+  // const selectedImage = blogUploadInput.files[0]; // Get the selected image file
 
-    // Call getBlogsData function with the selected image, title, and description
-    getBlogsData(selectedImage, blogTitle, blogDescription);
+  // if (selectedImage) {
+  //   const blogTitle = blogTitleInput.value;
+  //   const blogDescription = richTextEditor.textContent;
 
-    // Additional code to handle the selected image
-    console.log("Selected image:", selectedImage);
-    // Here you can call any functions or perform operations with the selected image
-  } else {
-    console.log("No image selected.");
-  }
+  //   // Call getBlogsData function with the selected image, title, and description
+  //   getBlogsData(selectedImage, blogTitle, blogDescription);
+
+  //   // Additional code to handle the selected image
+  //   console.log("Selected image:", selectedImage);
+  //   // Here you can call any functions or perform operations with the selected image
+  // } else {
+  //   console.log("No image selected.");
+  // }
 });
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////
 
