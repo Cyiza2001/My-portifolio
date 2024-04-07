@@ -32,6 +32,7 @@ const contactUsInputs = document.querySelector(".input-types");
 
 ///////////////////////////////////***************GLOBAL VARIABLES*******************************************//////////////////////////////////
 const contactorsArray = [];
+localStorage.removeItem("blogs-Array");
 const blogsArray = JSON.parse(localStorage.getItem("blogs-Array"));
 //////////////////*************************FUNCTIONS************************************/////////////////////////////////
 //toggle the cross and menu icon
