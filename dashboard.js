@@ -56,7 +56,6 @@ const blogTitleInput = document.querySelector("#blog-title-input");
 const blogUploadInput = document.querySelector("#blog-upload-input");
 const richTextEditor = document.querySelector("#editor .ql-editor");
 const postBlogButton = document.querySelector(".post-blog");
-
 /////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
 let notificationButton;
 let messageButton;
@@ -106,21 +105,25 @@ const getBlogsData = function (blogsPic, title, description) {
   localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 };
 const functionUpdateBlog = function (formerTitle) {
+  console.log("urikibwa");
   blogsArray = blogsArray.map((blog) => {
     if (blog.title === formerTitle) {
-      (blog.blogsPic = blogUploadInput.value),
-        (blog.title = blogTitleInput.value),
-        (blog.description = richTextEditor.textContent);
+      blog.blogsPic = blogUploadInput.value;
+      blog.title = blogTitleInput.value;
+      blog.description = richTextEditor.textContent;
     }
-    localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
   });
+  return blogsArray;
 };
+localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 const functionDeleteBlog = function (tobeDeleted) {
+  console.log("urikibwa");
   blogsArray = blogsArray.filter((blog) => {
     if (blog.title === tobeDeleted) blogsArray.indexOf(blog) === -1;
-    localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
   });
+  return blogsArray;
 };
+localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 hideAndDisplayUi("flex", "none", "none", "none");
@@ -181,11 +184,11 @@ postBlogButton.addEventListener("click", function () {
   );
   const blogUpdate = document.querySelector("#singleBlog");
   blogUpdate.innerHTML = "";
-  blogsArray.forEach((blog, i) => {
-    const html = `   <div class="single-blog-update">
+  blogsArray.forEach((blog) => {
+    const html = `<div class="single-blog-update">
   <div class="update-blog-title">${blog.title}</div>
-  <div class="update-blog" onclick="functionUpdateBlog(${blog.title})"  >update</div>
-  <div class="delete-blog" onclick="functionDeleteBlog(${blog.title})">Delete</div>
+  <div class="update-blog" onclick="functionUpdateBlog("${blog.title}")">update</div>
+  <div class="delete-blog" onclick="functionDeleteBlog("${blog.title}")">Delete</div>
  </div>`;
 
     blogUpdate.insertAdjacentHTML("afterbegin", html);
