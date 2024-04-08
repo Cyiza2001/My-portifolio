@@ -106,14 +106,15 @@ const getBlogsData = function (blogsPic, title, description) {
 };
 const functionUpdateBlog = function (formerTitle) {
   blogsArray = blogsArray.map((blog) => {
-    console.log(formerTitle);
     if (blog.title === formerTitle) {
       blog.blogsPic = blogUploadInput.value;
       blog.title = blogTitleInput.value;
       blog.description = richTextEditor.textContent;
     }
+    return blog;
   });
-  return blogsArray;
+  localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
+  updateBlogUi();
 };
 localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 const functionDeleteBlog = function (tobeDeleted) {
@@ -192,17 +193,6 @@ postBlogButton.addEventListener("click", function () {
     blogTitleInput.value,
     richTextEditor.textContent
   );
-  //   const blogUpdate = document.querySelector("#singleBlog");
-  //   blogUpdate.innerHTML = "";
-  //   blogsArray.forEach((blog) => {
-  //     const html = `<div class="single-blog-update">
-  //   <div class="update-blog-title">${blog.title}</div>
-  //   <div class="update-blog" onclick="functionUpdateBlog('${blog.title}')">update</div>
-  //   <div class="delete-blog" onclick="functionDeleteBlog('${blog.title}')">Delete</div>
-  //  </div>`;
-
-  //     blogUpdate.insertAdjacentHTML("afterbegin", html);
-  //   });
   updateBlogUi();
 });
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////
