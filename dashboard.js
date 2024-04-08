@@ -119,6 +119,9 @@ localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 const functionDeleteBlog = function (tobeDeleted) {
   blogsArray = blogsArray.filter((blog) => blog.title !== tobeDeleted);
   localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
+  updateBlogUi();
+};
+const updateBlogUi = function () {
   const blogUpdate = document.querySelector("#singleBlog");
   blogUpdate.innerHTML = "";
   blogsArray.forEach((blog) => {
@@ -189,17 +192,18 @@ postBlogButton.addEventListener("click", function () {
     blogTitleInput.value,
     richTextEditor.textContent
   );
-  const blogUpdate = document.querySelector("#singleBlog");
-  blogUpdate.innerHTML = "";
-  blogsArray.forEach((blog) => {
-    const html = `<div class="single-blog-update">
-  <div class="update-blog-title">${blog.title}</div>
-  <div class="update-blog" onclick="functionUpdateBlog('${blog.title}')">update</div>
-  <div class="delete-blog" onclick="functionDeleteBlog('${blog.title}')">Delete</div>
- </div>`;
+  //   const blogUpdate = document.querySelector("#singleBlog");
+  //   blogUpdate.innerHTML = "";
+  //   blogsArray.forEach((blog) => {
+  //     const html = `<div class="single-blog-update">
+  //   <div class="update-blog-title">${blog.title}</div>
+  //   <div class="update-blog" onclick="functionUpdateBlog('${blog.title}')">update</div>
+  //   <div class="delete-blog" onclick="functionDeleteBlog('${blog.title}')">Delete</div>
+  //  </div>`;
 
-    blogUpdate.insertAdjacentHTML("afterbegin", html);
-  });
+  //     blogUpdate.insertAdjacentHTML("afterbegin", html);
+  //   });
+  updateBlogUi();
 });
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////
 
