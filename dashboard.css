@@ -590,6 +590,7 @@ header {
   margin-right: 10px;
   justify-content: space-between;
   margin-bottom: 20px;
+  color: black;
 }
 .upload-blog {
   display: flex;

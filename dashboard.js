@@ -105,8 +105,8 @@ const getBlogsData = function (blogsPic, title, description) {
   localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 };
 const functionUpdateBlog = function (formerTitle) {
-  console.log("urikibwa");
   blogsArray = blogsArray.map((blog) => {
+    console.log(formerTitle);
     if (blog.title === formerTitle) {
       blog.blogsPic = blogUploadInput.value;
       blog.title = blogTitleInput.value;
@@ -117,13 +117,9 @@ const functionUpdateBlog = function (formerTitle) {
 };
 localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 const functionDeleteBlog = function (tobeDeleted) {
-  console.log("urikibwa");
-  blogsArray = blogsArray.filter((blog) => {
-    if (blog.title === tobeDeleted) blogsArray.indexOf(blog) === -1;
-  });
-  return blogsArray;
+  blogsArray = blogsArray.filter((blog) => blog.title !== tobeDeleted);
+  localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 };
-localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 
 /////////////////////INITIAL CONDITIONS//////////////////////
 hideAndDisplayUi("flex", "none", "none", "none");
@@ -187,8 +183,8 @@ postBlogButton.addEventListener("click", function () {
   blogsArray.forEach((blog) => {
     const html = `<div class="single-blog-update">
   <div class="update-blog-title">${blog.title}</div>
-  <div class="update-blog" onclick="functionUpdateBlog("${blog.title}")">update</div>
-  <div class="delete-blog" onclick="functionDeleteBlog("${blog.title}")">Delete</div>
+  <div class="update-blog" onclick="functionUpdateBlog('${blog.title}')">update</div>
+  <div class="delete-blog" onclick="functionDeleteBlog('${blog.title}')">Delete</div>
  </div>`;
 
     blogUpdate.insertAdjacentHTML("afterbegin", html);
