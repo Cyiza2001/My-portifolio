@@ -258,7 +258,7 @@ sendMessageButton.addEventListener("click", function (e) {
 });
 blogsArray.forEach((blog) => {
   const html = ` <div class="single-blog">
-  <div>
+  <div class="blog-item" >
     <img src="${blog.blogsPic}" alt="recent app we created" />
   </div>
   <div>${blog.title}</div>
