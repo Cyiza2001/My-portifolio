@@ -54,6 +54,8 @@ const tableOfMessages = document.querySelector("#message-table-body");
 const table = document.querySelector("table");
 const blogTitleInput = document.querySelector("#blog-title-input");
 const blogUploadInput = document.querySelector("#blog-upload-input");
+
+// let image = blogUploadInput.file[0];
 const richTextEditor = document.querySelector("#editor .ql-editor");
 const postBlogButton = document.querySelector(".post-blog");
 /////////////////////////////////////***********GLOBAL VARIABLES********************************************////////////////////
@@ -61,6 +63,7 @@ let notificationButton;
 let messageButton;
 const contactusData = JSON.parse(localStorage.getItem("contactus-data"));
 let blogsArray = [];
+let imageUrl;
 
 ///////////////////////////////////////////*************FUNCTIONS*****************************************/////////////////////////////
 const hideAndDisplayUi = function (rightsection, blogs, notification, message) {
@@ -105,9 +108,10 @@ const getBlogsData = function (blogsPic, title, description) {
   localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 };
 const functionUpdateBlog = function (formerTitle) {
+  if (formerTitle === "") formerTitle = "";
   blogsArray = blogsArray.map((blog) => {
     if (blog.title === formerTitle) {
-      blog.blogsPic = blogUploadInput.value;
+      blog.blogsPic = imageUrl;
       blog.title = blogTitleInput.value;
       blog.description = richTextEditor.textContent;
     }
@@ -116,12 +120,13 @@ const functionUpdateBlog = function (formerTitle) {
   localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
   updateBlogUi();
 };
-localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
 const functionDeleteBlog = function (tobeDeleted) {
   blogsArray = blogsArray.filter((blog) => blog.title !== tobeDeleted);
   localStorage.setItem("blogs-Array", JSON.stringify(blogsArray));
   updateBlogUi();
 };
+
+// For the update or delete section in the dashboard
 const updateBlogUi = function () {
   const blogUpdate = document.querySelector("#singleBlog");
   blogUpdate.innerHTML = "";
@@ -188,13 +193,13 @@ logoutButton.addEventListener("click", function () {
   window.location.href = "index.html";
 });
 postBlogButton.addEventListener("click", function () {
-  getBlogsData(
-    blogUploadInput.value,
-    blogTitleInput.value,
-    richTextEditor.textContent
-  );
+  const image = blogUploadInput.files[0];
+  imageUrl = URL.createObjectURL(image);
+  console.log(imageUrl, blogTitleInput.value, richTextEditor.textContent);
+  getBlogsData(imageUrl, blogTitleInput.value, richTextEditor.textContent);
   updateBlogUi();
 });
+
 ///////////////////////////////UPDATE THE MESSAGES RECEIVED FROM THE UI //////////////////////
 
 contactusData.forEach((data, order) => {
