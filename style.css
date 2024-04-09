@@ -642,15 +642,15 @@ a {
   height: 200px;
   width: 100%;
   overflow: hidden;
-  /* background-size: cover; /* Cover the entire container */
-  /* background-position: center; /* Center the image */
-  /* background-repeat: no-repeat;
-  margin-bottom: 20px; */
 }
-.technology-used {
+.single-blog:hover {
+  transform: translateY(-5%);
+}
+.title-used {
   color: rgb(17, 17, 74);
   font-weight: bold;
-  margin: 10px 0 10px 0;
+  font-size: 18px;
+  /* margin: 10px 0 10px 0; */
 }
 .blog-details {
   padding-right: 70px;

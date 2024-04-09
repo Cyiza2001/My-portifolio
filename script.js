@@ -261,7 +261,7 @@ blogsArray.forEach((blog) => {
   <div class="blog-item" >
     <img src="${blog.blogsPic}" alt="recent app we created" />
   </div>
-  <div>${blog.title}</div>
+  <div class ="title-used">${blog.title}</div>
   <div class="blog-details">
  ${blog.description}
   </div>
