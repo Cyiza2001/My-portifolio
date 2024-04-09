@@ -616,6 +616,11 @@ a {
   margin-bottom: 10px;
   text-align: center;
 }
+.single-slide-blog {
+  position: relative;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 .whole-blog {
   display: flex;
   flex-direction: row;
@@ -655,6 +660,12 @@ a {
 }
 .blog-details {
   padding-right: 70px;
+}
+.blog-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  gap: 10px;
 }
 .section-contact {
   background-size: cover;

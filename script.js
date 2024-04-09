@@ -261,10 +261,13 @@ blogsArray.forEach((blog) => {
   <div class="blog-item" >
     <img src="${blog.blogsPic}" alt="recent app we created" />
   </div>
+  <div class="blog-info">
   <div class ="title-used">${blog.title}</div>
   <div class="blog-details">
  ${blog.description}
   </div>
+  </div>
+ 
 </div>`;
   const wholeBlog = document.querySelector(".whole-blog");
   wholeBlog.insertAdjacentHTML("beforeend", html);
