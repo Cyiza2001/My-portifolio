@@ -645,6 +645,7 @@ a {
 }
 .single-blog:hover {
   transform: translateY(-5%);
+  background-color: rgba(128, 128, 128, 0.138);
 }
 .title-used {
   color: rgb(17, 17, 74);
