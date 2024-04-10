@@ -618,7 +618,7 @@ a {
 }
 .single-slide-blog {
   position: relative;
-  overflow-x: auto;
+  overflow-x: scroll;
   white-space: nowrap;
 }
 .whole-blog {
@@ -626,8 +626,6 @@ a {
   flex-direction: row;
 }
 .whole-blog img {
-  /* width: 100px;
-  margin-bottom: 10px; */
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -666,6 +664,7 @@ a {
   flex-direction: column;
   padding-left: 5px;
   gap: 10px;
+  white-space: normal;
 }
 .section-contact {
   background-size: cover;
