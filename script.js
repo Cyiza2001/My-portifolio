@@ -29,7 +29,9 @@ const contactUsEmail = document.querySelector("#input-email-id");
 const contactUsPhone = document.querySelector("#input-phone-id");
 const contactUsMessage = document.querySelector("#input-message-id");
 const contactUsInputs = document.querySelector(".input-types");
-
+const scrollToLeft = document.querySelector(".left-slider");
+const scrollToRight = document.querySelector(".right-slider");
+const wholeBlog = document.querySelector(".whole-blog");
 ///////////////////////////////////***************GLOBAL VARIABLES*******************************************//////////////////////////////////
 const contactorsArray = [];
 const blogsArray = JSON.parse(localStorage.getItem("blogs-Array"));
@@ -269,8 +271,24 @@ blogsArray.forEach((blog) => {
   </div>
  
 </div>`;
-  const wholeBlog = document.querySelector(".whole-blog");
+
   wholeBlog.insertAdjacentHTML("beforeend", html);
+});
+////////////////////CLICK ON THE SLIDER BUTTONS TO SCROLL TO LEFT OR RIGHT IN THE BLOGS SECTION/////////////////////////
+//set the initial position of the slider
+wholeBlog.scrollIntoView(0);
+scrollToLeft.addEventListener("click", function () {
+  wholeBlog.scrollBy({
+    left: -1000,
+    behavior: "smooth",
+  });
+});
+
+scrollToRight.addEventListener("click", function () {
+  wholeBlog.scrollBy({
+    left: 1000,
+    behavior: "smooth",
+  });
 });
 /////////.//////////////////CLICK ON THE TOP MOST SIGN UP AND LOGIN NAVIGATIONS//////////////////
 
