@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Blog = require("../models/blog.model");
+// const cloudinary = require("../utils/cloudinary");
 //get a blog from the database
 const getBlogs = async (req, res) => {
   try {
@@ -14,7 +15,17 @@ const getBlogs = async (req, res) => {
 
 const postBlog = async (req, res) => {
   try {
-    const blog = await Blog.create(req.body);
+    const { title, description } = req.body;
+    const imageUrl = req.file.path;
+    const imagePublicId = req.file.filename;
+    const blog = new Blog({
+      title,
+      description,
+      imageUrl,
+      imagePublicId,
+    });
+
+    await blog.save();
     res.status(201).json(blog);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -35,10 +46,22 @@ const deleteBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
   try {
     const { id } = req.params;
-    const blog = await Blog.findByIdAndUpdate(id, req.body);
-    if (!blog) return res.status(404).json("blog does not exist");
+    const { title, description } = req.body;
+    let updateData = { title, description };
 
-    res.status(200).json("product updated successfully");
+    const blog = await Blog.findByIdAndUpdate(id);
+    if (!blog) return res.status(404).json("blog does not exist");
+    if (req.file) {
+      await cloudinary.uploader.destroy(blog.imagePublicId);
+      updateData.imageUrl = req.file.path;
+      updateData.imagePublicId = req.file.filename;
+    }
+
+    const updatedBlog = await Blog.findByIdAndUpdate(id, updateData, {
+      new: true,
+    });
+
+    res.json(updatedBlog);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
