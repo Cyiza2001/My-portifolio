@@ -234,7 +234,7 @@ header .menu-img {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.875);
   z-index: 1;
-  padding: 20px;
+  padding: 70px 20px 20px 20px;
   text-align: center;
 }
 
@@ -242,6 +242,7 @@ header .menu-img {
   color: white;
   font-weight: bolder;
   font-size: 15px;
+  padding-bottom: 20px;
 }
 
 .ndanyuzwe {
@@ -257,14 +258,13 @@ header .menu-img {
   -webkit-background-clip: text;
   background-clip: text;
   font-size: 45px !important;
-  padding-top: 30px;
 }
 
 .dedicated {
-  margin-top: 130px;
+  margin-top: 63px;
 }
 .download-cv button {
-  margin-top: 15px;
+  /* margin-top: 10px; */
   padding: 5px;
   color: white;
   background: linear-gradient(45deg, rgb(101, 2, 101), rgb(245, 43, 43));
