@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const blogRoutes = require("./routes/blogs.routes");
 const app = express();
 
 //set a middleware for express json
