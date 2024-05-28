@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Blog = require("../models/blog.model");
+const cloudinary = require("../utils/cloudinary");
 // const cloudinary = require("../utils/cloudinary");
 //get a blog from the database
 const getBlogs = async (req, res) => {
@@ -16,8 +17,11 @@ const getBlogs = async (req, res) => {
 const postBlog = async (req, res) => {
   try {
     const { title, description } = req.body;
-    const imageUrl = req.file.path;
-    const imagePublicId = req.file.filename;
+    const image = await cloudinary.uploader.upload(req.file.path);
+    console.log(image.url);
+    const imageUrl = image.url;
+
+    const imagePublicId = image.public_id;
     const blog = new Blog({
       title,
       description,

@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "nodemon app"
+  },
   "dependencies": {
     "cloudinary": "^2.2.0",
     "express": "^4.19.2",
