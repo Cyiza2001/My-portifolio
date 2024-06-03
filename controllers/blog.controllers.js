@@ -53,12 +53,14 @@ const updateBlog = async (req, res) => {
     const { title, description } = req.body;
     let updateData = { title, description };
 
-    const blog = await Blog.findByIdAndUpdate(id);
+    const blog = await Blog.findById(id);
     if (!blog) return res.status(404).json("blog does not exist");
     if (req.file) {
       await cloudinary.uploader.destroy(blog.imagePublicId);
-      updateData.imageUrl = req.file.path;
-      updateData.imagePublicId = req.file.filename;
+      const image = await cloudinary.uploader.upload(req.file.path);
+      console.log(image);
+      updateData.imageUrl = image.url;
+      updateData.imagePublicId = image.public_id;
     }
 
     const updatedBlog = await Blog.findByIdAndUpdate(id, updateData, {
