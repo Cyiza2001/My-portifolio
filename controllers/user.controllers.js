@@ -28,5 +28,25 @@ const createUser = async (req, res) => {
     });
   }
 };
+const getUser = async (req, res) => {
+  try {
+    const user = await User.find({});
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message }, "User not found");
+  }
+};
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
 
-module.exports = createUser;
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json("User does not exist");
+    await User.findByIdAndDelete(id);
+    res.status(200).json("user deleted successfully");
+  } catch (err) {
+    res.status(500).json({ message: err.message }, "failed to delete user");
+  }
+};
+
+module.exports = { createUser, getUser, deleteUser };

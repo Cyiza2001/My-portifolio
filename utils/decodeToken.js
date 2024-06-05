@@ -6,7 +6,7 @@ dotenv.config();
 const decodeToken = (token) => {
   try {
     const verifiedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    console.log(verifiedToken.role, "wahatwitse man");
+    console.log(verifiedToken.email, verifiedToken.role, "wahatwitse man");
     return verifiedToken;
   } catch (err) {
     console.log(err, "wahiye sha");
