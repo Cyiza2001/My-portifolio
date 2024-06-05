@@ -15,6 +15,7 @@ const createUser = async (req, res) => {
   try {
     const createdUser = await User.create(userObj);
     const token = generateToken(createdUser);
+    console.log(token, "iyi niyo token ya nyayo");
     console.log(decodeToken(token));
     res.status(201).json({
       message: "User created successfully",
