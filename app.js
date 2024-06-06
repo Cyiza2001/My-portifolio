@@ -9,6 +9,20 @@ const app = express();
 app.use(express.json());
 app.use("/api/blogs", blogRoutes);
 app.use("/api/users", userRoutes);
+// app.post("/generate-token", (req, res) => {
+//   const { id, role, email } = req.body;
+
+//   if (!id || !role || !email) {
+//     return res
+//       .status(400)
+//       .json({ message: "id, role, and email are required" });
+//   }
+
+//   const user = { id, role, email };
+//   const token = generateToken(user);
+
+//   res.json({ token });
+// });
 
 mongoose
   .connect(

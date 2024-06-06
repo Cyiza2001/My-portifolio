@@ -8,7 +8,7 @@ const generateToken = (user) => {
     { id: user.id, role: user.role, email: user.email },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: "1h",
+      expiresIn: "10d",
     }
   );
   return token;

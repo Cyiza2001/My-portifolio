@@ -16,10 +16,7 @@ const checkAdminRole = async (req, res, next) => {
 
   try {
     const decoded = await decodeToken(token);
-    console.log(
-      decoded.role === "admin",
-      "ubuse kuki admin barikumwaka uburenganzira"
-    );
+    console.log(decoded, "ubuse kuki admin barikumwaka uburenganzira");
     if (decoded.role !== "admin") {
       return res
         .status(403)
