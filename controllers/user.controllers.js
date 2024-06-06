@@ -48,5 +48,43 @@ const deleteUser = async (req, res) => {
     res.status(500).json({ message: err.message }, "failed to delete user");
   }
 };
+const deleteAllUsers = async (req, res) => {
+  try {
+    await User.deleteMany({});
+    res.status(200).json("All users deleted successfully");
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+      description: "Failed to delete all users",
+    });
+  }
+};
 
-module.exports = { createUser, getUser, deleteUser };
+const updateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { Firstname, role, email, password } = req.body;
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json("User does not exist");
+    const updatedData = {
+      Firstname: Firstname || user.Firstname,
+      role: role || user.role,
+      email: email || user.email,
+      password: password || user.password,
+    };
+
+    const updatedUser = await User.findByIdAndUpdate(id, updatedData, {
+      new: true,
+    });
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+module.exports = {
+  createUser,
+  getUser,
+  deleteUser,
+  deleteAllUsers,
+  updateUser,
+};
