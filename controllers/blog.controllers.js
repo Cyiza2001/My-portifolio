@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Blog = require("../models/blog.model");
 const cloudinary = require("../utils/cloudinary");
-// const cloudinary = require("../utils/cloudinary");
+
 //get a blog from the database
 const getBlogs = async (req, res) => {
   try {

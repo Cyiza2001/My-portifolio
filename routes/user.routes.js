@@ -11,12 +11,10 @@ const express = require("express");
 
 const userRoutes = express.Router();
 
-userRoutes.post("/admin", checkAdminRole, createUser);
+userRoutes.post("/admin", createUser);
 userRoutes.get("/admin", getUser);
 userRoutes.delete("/admin/:id", deleteUser);
 userRoutes.delete("/admin", deleteAllUsers);
 userRoutes.put("/admin/:id", updateUser);
-
-// userRoutes.get("/",  DataTransfer);
 
 module.exports = userRoutes;
