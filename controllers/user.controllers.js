@@ -14,13 +14,13 @@ const createUser = async (req, res) => {
   console.log(userObj);
   try {
     const createdUser = await User.create(userObj);
-    const token = generateToken(createdUser);
-    console.log(token, "iyi niyo token ya nyayo");
-    console.log(decodeToken(token));
+    // const token = generateToken(createdUser);
+    // console.log(token, "iyi niyo token ya nyayo");
+    // console.log(decodeToken(token));
     res.status(201).json({
       message: "User created successfully",
       data: createdUser,
-      token: token,
+      // token: token,
     });
   } catch (err) {
     res.status(500).json({
