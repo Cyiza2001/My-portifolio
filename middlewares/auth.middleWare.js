@@ -10,7 +10,7 @@ function authenticateToken(req, res, next) {
       message: "login to continue",
     });
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
+    if (err) return res.sendStatus(403).json("Failed to verify token");
     req.user = user;
 
     next();

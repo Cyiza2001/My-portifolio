@@ -5,8 +5,8 @@ const User = require("../models/user.model");
 require("dotenv").config();
 
 router.post("/signup", async (req, res) => {
-  const { name, email, password } = req.body;
-  const newUser = new User({ name, email, password });
+  const { Firstname, email, password } = req.body;
+  const newUser = new User({ Firstname, email, password });
   try {
     await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "7d" }
     );
 
     res.json({ token });

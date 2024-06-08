@@ -4,6 +4,7 @@ const blogRoutes = require("./routes/blogs.routes");
 const userRoutes = require("./routes/user.routes");
 const messageRoutes = require("./routes/message.routes");
 const notificationRoutes = require("./routes/notification.routes");
+const loginRoutes = require("./routes/login.routes");
 const app = express();
 
 //set a middleware for express json
@@ -13,6 +14,7 @@ app.use("/api/blogs", blogRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/register", loginRoutes);
 // app.post("/generate-token", (req, res) => {
 //   const { id, role, email } = req.body;
 
