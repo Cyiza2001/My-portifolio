@@ -13,7 +13,23 @@ const express = require("express");
 const userRoutes = express.Router();
 
 userRoutes.post("/post/admin", authenticateToken, checkAdminRole, createUser);
-userRoutes.get("/get/admin", authenticateToken, getUser);
+userRoutes.get("/get/admin", authenticateToken, checkAdminRole, getUser);
+userRoutes.delete(
+  "/deleteOne/admin/:id",
+  authenticateToken,
+  checkAdminRole,
+  deleteUser
+);
+userRoutes.delete(
+  "/deleteAll/admin",
+  authenticateToken,
+  checkAdminRole,
+  deleteAllUsers
+);
+userRoutes.put("/put/admin/:id", authenticateToken, updateUser);
+
+userRoutes.post("/post/admin", authenticateToken, checkAdminRole, createUser);
+userRoutes.get("/get/admin", authenticateToken, checkAdminRole, getUser);
 userRoutes.delete(
   "/deleteOne/admin/:id",
   authenticateToken,
