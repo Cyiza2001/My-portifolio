@@ -5,8 +5,13 @@ const User = require("../models/user.model");
 require("dotenv").config();
 
 router.post("/signup", async (req, res) => {
-  const { Firstname, email, password } = req.body;
-  const newUser = new User({ Firstname, email, password });
+  const { Firstname, email, password, role } = req.body;
+  const newUser = new User({
+    Firstname: Firstname,
+    email: email,
+    password: password,
+    role: role || "user",
+  });
   try {
     await newUser.save();
     res.status(201).json({ message: "User registered successfully" });
@@ -31,7 +36,7 @@ router.post("/login", async (req, res) => {
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "7d" }
     );
-
+    console.log(user, "this is the user");
     res.json({ token });
   } catch (err) {
     res.status(500).json({ message: err.message });
