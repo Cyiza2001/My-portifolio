@@ -23,6 +23,4 @@ userRoutes.delete(
 );
 userRoutes.put("/put/admin/:id", authenticateToken, checkAdminRole, updateUser);
 
-userRoutes.get("/get", authenticateToken, getUser);
-
 module.exports = userRoutes;
