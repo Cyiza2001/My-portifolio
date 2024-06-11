@@ -4,6 +4,6 @@ const { likeBlog, getLikes } = require("../controllers/like.controllers");
 const authenticateToken = require("../middlewares/auth.middleWare");
 
 router.post("/like", authenticateToken, likeBlog);
-router.get("/likes/:blogId", getLikes);
+router.get("/likes/:blogId", authenticateToken, getLikes);
 
 module.exports = router;
