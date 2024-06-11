@@ -6,6 +6,7 @@ const messageRoutes = require("./routes/message.routes");
 const notificationRoutes = require("./routes/notification.routes");
 const loginRoutes = require("./routes/login.routes");
 const likeRoutes = require("./routes/like.routes");
+const commentRoutes = require("./routes/comment.route");
 const app = express();
 
 //set a middleware for express json
@@ -17,6 +18,7 @@ app.use("/api/messages", messageRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/register", loginRoutes);
 app.use("/api/like", likeRoutes);
+app.use("/api/comments", commentRoutes);
 
 mongoose
   .connect(
