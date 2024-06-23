@@ -51,7 +51,7 @@ router.post("/login", async (req, res) => {
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "7d" }
     );
-    console.log(user, "this is the user");
+
     res.json({ token });
   } catch (err) {
     res.status(500).json({ message: err.message });
