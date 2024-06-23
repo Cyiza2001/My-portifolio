@@ -5,10 +5,12 @@ const {
   deleteMessage,
   updateMessage,
 } = require("../controllers/message.controllers");
+const authenticateToken = require("../middlewares/auth.middleWare");
+const checkAdminRole = require("../middlewares/checkAdminRole.middleware");
 
-router.get("/", getMessage);
+router.get("/", authenticateToken, checkAdminRole, getMessage);
 router.post("/", postMessage);
-router.delete("/:id", deleteMessage);
+router.delete("/:id", authenticateToken, checkAdminRole, deleteMessage);
 router.put("/:id", updateMessage);
 
 module.exports = router;

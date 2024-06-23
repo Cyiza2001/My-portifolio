@@ -6,6 +6,13 @@ require("dotenv").config();
 
 router.post("/signup", async (req, res) => {
   const { Firstname, email, password, role } = req.body;
+  const validateEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+  if (!validateEmail(email)) {
+    return res.status(400).json({ message: "Invalid email" });
+  }
   const newUser = new User({
     Firstname: Firstname,
     email: email,
@@ -23,6 +30,7 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
