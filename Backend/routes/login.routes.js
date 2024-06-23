@@ -5,16 +5,23 @@ const User = require("../models/user.model");
 require("dotenv").config();
 
 router.post("/signup", async (req, res) => {
-  const { Firstname, email, password, role } = req.body;
+  const { name, email, password, role } = req.body;
   const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
   };
+  const existingEmail = await User.findOne({ email });
+  if (existingEmail) {
+    return res.status(400).json({ message: "Email is taken" });
+  }
+  if (!name || !email || !password) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
   if (!validateEmail(email)) {
     return res.status(400).json({ message: "Invalid email" });
   }
   const newUser = new User({
-    Firstname: Firstname,
+    name: name,
     email: email,
     password: password,
     role: role || "user",

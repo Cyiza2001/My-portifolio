@@ -63,11 +63,11 @@ const deleteAllUsers = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const { Firstname, role, email, password } = req.body;
+    const { name, role, email, password } = req.body;
     const user = await User.findById(id);
     if (!user) return res.status(404).json("User does not exist");
     const updatedData = {
-      Firstname: Firstname || user.Firstname,
+      name: name || user.name,
       role: role || user.role,
       email: email || user.email,
       password: password || user.password,
