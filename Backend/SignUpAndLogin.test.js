@@ -1,16 +1,17 @@
 const request = require("supertest");
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
-const User = require("./models/user.model"); // Adjust the path to your User model
+const User = require("./models/user.model");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Include your signup route here
 app.post("/signup", async (req, res) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password, role = "user" } = req.body;
   const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
@@ -39,16 +40,39 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-describe("POST /signup", () => {
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password)
+      return res.status(400).json({ message: "All fields are required!" });
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    if (user.password !== password) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    const token = jwt.sign(
+      { userId: user._id, email: user.email, role: user.role },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.json({ token });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+describe("POST /signup and POST/login", () => {
   let mongoServer;
 
   beforeAll(async () => {
     mongoServer = await MongoMemoryServer.create();
     const uri = mongoServer.getUri();
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(uri);
   });
 
   afterAll(async () => {
@@ -59,7 +83,7 @@ describe("POST /signup", () => {
   afterEach(async () => {
     await User.deleteMany({});
   });
-
+  // The following tests works for signup
   it("should register a new user", async () => {
     const res = await request(app).post("/signup").send({
       name: "John Doe",
@@ -106,5 +130,60 @@ describe("POST /signup", () => {
 
     expect(res.statusCode).toBe(400);
     expect(res.body.message).toBe("Invalid email");
+  });
+
+  // The tests for login endpoints
+
+  /****************************It should check if all fields are filled**********************************************/
+  it("should check if all fields are filled", async () => {
+    const res = await request(app).post("/login").send({
+      email: "",
+      password: "",
+    });
+    expect(res.statusCode).toBe(400);
+    expect(res.body.message).toBe("All fields are required!");
+  });
+
+  /********************Check if the user is registered in the database by his email***************** */
+  it("should first find a user in the database by his email", async () => {
+    const res = await request(app).post("/login").send({
+      email: "mapyaka@example.com",
+      password: "password123",
+    });
+    expect(res.statusCode).toBe(404);
+    expect(res.body.message).toBe("User not found");
+  });
+  /****************************Check if the user password matches the registered one ********************* */
+  it("should check the password of the user", async () => {
+    await User.create({
+      name: "John Doe",
+      email: "john@example.com",
+      password: "password123",
+    });
+    const res = await request(app).post("/login").send({
+      email: "john@example.com",
+      password: "invalid-password",
+    });
+    expect(res.statusCode).toBe(401);
+    expect(res.body.message).toBe("Invalid credentials");
+  });
+
+  /********if the user has correct credentials should be logged in********************* */
+  it("should login an existing user", async () => {
+    const user = await User.create({
+      name: "John Doe",
+      email: "john@example.com",
+      password: "password123",
+    });
+    const token = jwt.sign(
+      { userId: user._id, email: user.email, role: user.role },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "7d" }
+    );
+    const res = await request(app).post("/login").send({
+      email: "john@example.com",
+      password: "password123",
+    });
+    expect(JSON.parse(res.text).token).toBe(token);
   });
 });
