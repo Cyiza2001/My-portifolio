@@ -63,7 +63,7 @@ describe("Blog Routes", () => {
   });
 
   describe("POST /blogs", () => {
-    it("should create a new blog", async () => {
+    it("should create   a new blog", async () => {
       await cloudinary.uploader.upload.mockResolvedValue({
         url: "http://example.com/image.jpg",
         public_id: "image123",
@@ -81,26 +81,30 @@ describe("Blog Routes", () => {
     });
   });
 
-  // describe("DELETE /blogs/:id", () => {
-  //   it("should delete a blog by ID", async () => {
-  //     const blog = await Blog.create({
-  //       title: "Blog to delete",
-  //       description: "Content to delete",
-  //       imageUrl: "http://example.com/image.jpg",
-  //       imagePublicId: "image123",
-  //     });
+  describe("DELETE /blogs/:id", () => {
+    it("should delete a blog by ID", async () => {
+      console.log("this is the beginning of deleting by id");
+      const blog = await Blog.create({
+        title: "Blog to delete",
+        description: "Content to delete",
+        imageUrl: "http://example.com/image.jpg",
+        imagePublicId: "image123",
+      });
+      console.log("in delete test the blog is created,", blog);
+      const blogId = blog._id.toString();
+      console.log("this is my blog Id", blogId);
+      await cloudinary.uploader.destroy.mockResolvedValue({ result: "ok" });
+      const res = await request(app).delete(`/blogs/${blog._id}`);
 
-  //     // await cloudinary.uploader.destroy.mockResolvedValue({ result: "ok" });
+      console.log("this is my delete response", res.status, res.body);
 
-  //     const res = await request(app).delete(`/blogs/${blog._id}`);
-  //     console.log(res);
-  //     expect(res.statusCode).toBe(200);
-  //     expect(res.body.message).toBe("Blog deleted successfully");
+      expect(res.statusCode).toBe(200);
+      expect(res.body.message).toBe("Blog deleted successfully");
 
-  //     const deletedBlog = await Blog.findById(blog._id);
-  //     expect(deletedBlog).toBeNull();
-  //   }, 20000);
-  // });
+      const deletedBlog = await Blog.findById(blog._id);
+      expect(deletedBlog).toBeNull();
+    }, 20000);
+  });
 
   describe("PUT /blogs/:id", () => {
     it("should update a blog by ID", async () => {
@@ -121,6 +125,7 @@ describe("Blog Routes", () => {
         .field("title", "Updated Blog")
         .field("description", "Updated Content")
         .attach("image", Buffer.from("dummy file content"), "image.jpg");
+      console.log("this is the put response", res.statusCode, res.body.title);
 
       expect(res.statusCode).toBe(200);
       expect(res.body.title).toBe("Updated Blog");

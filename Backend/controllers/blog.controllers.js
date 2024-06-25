@@ -41,6 +41,7 @@ const deleteBlog = async (req, res) => {
     const { id } = req.params;
     const blog = await Blog.findByIdAndDelete(id);
     if (!blog) return res.status(404).json("blog does not exist");
+    res.status(200).json({ message: "Blog deleted successfully" });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
