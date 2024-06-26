@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 const Blog = require("./models/blog.model");
 const blogRoutes = require("./routes/blogs.routes");
-const e = require("express");
+const jwt = require("jsonwebtoken");
 jest.mock("cloudinary", () => ({
   v2: {
     uploader: {
@@ -21,6 +21,9 @@ const app = express();
 app.use(express.json());
 app.use("/blogs", blogRoutes);
 
+// declare the token in the global scope so that it wil be available anywere
+let token;
+
 describe("Blog Routes", () => {
   let mongoServer;
 
@@ -28,6 +31,12 @@ describe("Blog Routes", () => {
     mongoServer = await MongoMemoryServer.create();
     const uri = mongoServer.getUri();
     await mongoose.connect(uri);
+
+    token = jwt.sign(
+      { userId: "testUserId", email: "admin@example.com", role: "admin" },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "30d" }
+    );
   });
 
   afterAll(async () => {
@@ -54,12 +63,39 @@ describe("Blog Routes", () => {
         imagePublicId: "image2",
       });
 
-      const res = await request(app).get("/blogs");
+      const res = await request(app)
+        .get("/blogs")
+        .set("Authorization", `Bearer ${token}`);
 
       expect(res.statusCode).toBe(200);
       expect(res.body.length).toBe(2);
       expect(res.body[0]._id).toBe(blog1.id);
       expect(res.body[1]._id).toBe(blog2.id);
+    });
+
+    it("should return 401 if user is not authenticated", async () => {
+      // Make a GET request to /blogs without setting Authorization header
+      const res = await request(app).get("/blogs").expect(401);
+      expect(res.body.message).toBe("login to continue");
+    });
+    it("should return 403 if user is authenticated but not admin", async () => {
+      // Generate a token for a non-admin user
+      const nonAdminToken = jwt.sign(
+        {
+          userId: mongoose.Types.ObjectId(),
+          email: "user@example.com",
+          role: "user",
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: "1h" }
+      );
+
+      // Make a GET request to /blogs with a non-admin token
+      const res = await request(app)
+        .get("/blogs")
+        .set("Authorization", `Bearer ${nonAdminToken}`)
+        .expect(403);
+      expect(res.body.message).toBe("Access forbidden: you are not an admin");
     });
 
     test("should contain required keys", () => {
