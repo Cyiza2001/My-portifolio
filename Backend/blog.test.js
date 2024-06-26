@@ -119,13 +119,18 @@ describe("Blog Routes", () => {
     });
     it("should throw a 404 when the blog id does not exist", async () => {
       const res = await request(app).delete("/blogs/667b4d2ef33a4094046c5bcd");
-      console.log("ko mpiye se mwana", res.statusCode);
       expect(res.statusCode).toBe(404);
       expect(res.body.message).toBe("blog does not exist");
     });
   });
 
   describe("PUT /blogs/:id", () => {
+    it("should throw a 404 when the blog id does not exist", async () => {
+      const nonExistingId = "667b4d2ef33a4094046c5bcd";
+      const res = await request(app).put(`/blogs/${nonExistingId}`);
+      expect(res.statusCode).toBe(404);
+      expect(res.body.message).toBe("blog does not exist");
+    });
     it("should update a blog by ID", async () => {
       const blog = await Blog.create({
         title: "Blog to update",
@@ -134,7 +139,7 @@ describe("Blog Routes", () => {
         imagePublicId: "image123",
       });
 
-      cloudinary.uploader.upload.mockResolvedValue({
+      await cloudinary.uploader.upload.mockResolvedValue({
         url: "http://example.com/newimage.jpg",
         public_id: "newimage123",
       });
@@ -144,7 +149,6 @@ describe("Blog Routes", () => {
         .field("title", "Updated Blog")
         .field("description", "Updated Content")
         .attach("image", Buffer.from("dummy file content"), "image.jpg");
-      console.log("this is the put response", res.statusCode, res.body.title);
 
       expect(res.statusCode).toBe(200);
       expect(res.body.title).toBe("Updated Blog");
