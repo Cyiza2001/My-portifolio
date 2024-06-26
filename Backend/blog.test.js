@@ -47,93 +47,128 @@ describe("Blog Routes", () => {
   afterEach(async () => {
     await Blog.deleteMany({});
   });
+});
 
-  describe("GET /blogs", () => {
-    it("should fetch all blogs", async () => {
-      const blog1 = await Blog.create({
-        title: "Blog 1",
-        description: "Content 1",
-        imageUrl: "http://example.com/image1.jpg",
-        imagePublicId: "image1",
-      });
-      const blog2 = await Blog.create({
-        title: "Blog 2",
-        description: "Content 2",
-        imageUrl: "http://example.com/image2.jpg",
-        imagePublicId: "image2",
-      });
-
-      const res = await request(app)
-        .get("/blogs")
-        .set("Authorization", `Bearer ${token}`);
-
-      expect(res.statusCode).toBe(200);
-      expect(res.body.length).toBe(2);
-      expect(res.body[0]._id).toBe(blog1.id);
-      expect(res.body[1]._id).toBe(blog2.id);
+describe("GET /blogs", () => {
+  it("should fetch all blogs", async () => {
+    const blog1 = await Blog.create({
+      title: "Blog 1",
+      description: "Content 1",
+      imageUrl: "http://example.com/image1.jpg",
+      imagePublicId: "image1",
+    });
+    const blog2 = await Blog.create({
+      title: "Blog 2",
+      description: "Content 2",
+      imageUrl: "http://example.com/image2.jpg",
+      imagePublicId: "image2",
     });
 
-    it("should return 401 if user is not authenticated", async () => {
-      // Make a GET request to /blogs without setting Authorization header
-      const res = await request(app).get("/blogs").expect(401);
-      expect(res.body.message).toBe("login to continue");
-    });
-    it("should return 403 if user is authenticated but not admin", async () => {
-      // Generate a token for a non-admin user
-      const nonAdminToken = jwt.sign(
-        {
-          userId: mongoose.Types.ObjectId(),
-          email: "user@example.com",
-          role: "user",
-        },
-        process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1h" }
-      );
+    const res = await request(app)
+      .get("/blogs")
+      .set("Authorization", `Bearer ${token}`);
 
-      // Make a GET request to /blogs with a non-admin token
-      const res = await request(app)
-        .get("/blogs")
-        .set("Authorization", `Bearer ${nonAdminToken}`)
-        .expect(403);
-      expect(res.body.message).toBe("Access forbidden: you are not an admin");
-    });
-
-    test("should contain required keys", () => {
-      const blog = {
-        title: "Blog 1",
-        description: "Content 1",
-        imageUrl: "http://example.com/image1.jpg",
-        imagePublicId: "image1",
-      };
-
-      expect(blog).toEqual(
-        expect.objectContaining({
-          title: expect.any(String),
-          description: expect.any(String),
-          imageUrl: expect.any(String),
-          imagePublicId: expect.any(String),
-        })
-      );
-    });
+    expect(res.statusCode).toBe(200);
+    expect(res.body.length).toBe(2);
+    expect(res.body[0]._id).toBe(blog1.id);
+    expect(res.body[1]._id).toBe(blog2.id);
   });
 
-  describe("POST /blogs", () => {
-    it("should create   a new blog", async () => {
-      await cloudinary.uploader.upload.mockResolvedValue({
-        url: "http://example.com/image.jpg",
-        public_id: "image123",
-      });
+  it("should return 401 if user is not authenticated", async () => {
+    // Make a GET request to /blogs without setting Authorization header
+    const res = await request(app).get("/blogs");
+    expect(res.statusCode).toBe(401);
+    expect(res.body.message).toBe("login to continue");
+  });
+  it("should return 403 if user is authenticated but not admin", async () => {
+    // Generate a token for a non-admin user
+    const nonAdminToken = jwt.sign(
+      {
+        userId: "non-AdminId",
+        email: "user@example.com",
+        role: "user",
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "10d" }
+    );
 
-      const res = await request(app)
-        .post("/blogs")
-        .field("title", "New Blog")
-        .field("description", "New Content")
-        .attach("image", Buffer.from("dummy file content"), "image.jpg");
+    // Make a GET request to /blogs with a non-admin token
+    const res = await request(app)
+      .get("/blogs")
+      .set("Authorization", `Bearer ${nonAdminToken}`)
+      .expect(403);
+    expect(res.body.message).toBe("Access forbidden: you are not an admin");
+  });
 
-      expect(res.statusCode).toBe(201);
-      expect(res.body.title).toBe("New Blog");
-      expect(res.body.imageUrl).toBe("http://example.com/image.jpg");
+  test("should contain required keys", () => {
+    const blog = {
+      title: "Blog 1",
+      description: "Content 1",
+      imageUrl: "http://example.com/image1.jpg",
+      imagePublicId: "image1",
+    };
+
+    expect(blog).toEqual(
+      expect.objectContaining({
+        title: expect.any(String),
+        description: expect.any(String),
+        imageUrl: expect.any(String),
+        imagePublicId: expect.any(String),
+      })
+    );
+  });
+});
+
+describe("POST /blogs", () => {
+  it("should create   a new blog", async () => {
+    await cloudinary.uploader.upload.mockResolvedValue({
+      url: "http://example.com/image.jpg",
+      public_id: "image123",
     });
+
+    const res = await request(app)
+      .post("/blogs")
+      .field("title", "New Blog")
+      .field("description", "New Content")
+      .attach("image", Buffer.from("dummy file content"), "image.jpg")
+      .set("Authorization", `Bearer ${token}`);
+
+    expect(res.statusCode).toBe(201);
+    expect(res.body.title).toBe("New Blog");
+    expect(res.body.imageUrl).toBe("http://example.com/image.jpg");
+  });
+
+  it("should return 401 if user is not authenticated", async () => {
+    // Make a POST request to /blogs without setting Authorization header
+    const res = await request(app)
+      .post("/blogs")
+      .field("title", "New Blog")
+      .field("description", "New Content")
+      .attach("image", Buffer.from("dummy file content"), "image.jpg");
+    expect(res.statusCode).toBe(401);
+    expect(res.body.message).toBe("login to continue");
+  });
+
+  it("should return 403 if user is authenticated but not admin", async () => {
+    // Generate a token for a non-admin user
+    const nonAdminToken = jwt.sign(
+      {
+        userId: "non-AdminId",
+        email: "user@example.com",
+        role: "user",
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "10d" }
+    );
+
+    // Make a POST request to /blogs with a non-admin token
+    const res = await request(app)
+      .field("title", "New Blog")
+      .field("description", "New Content")
+      .attach("image", Buffer.from("dummy file content"), "image.jpg")
+      .set("Authorization", `Bearer ${nonAdminToken}`)
+      .expect(403);
+    expect(res.body.message).toBe("Access forbidden: you are not an admin");
   });
 
   describe("DELETE /blogs/:id", () => {
