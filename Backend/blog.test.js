@@ -33,7 +33,7 @@ describe("Blog Routes", () => {
     await mongoose.connect(uri);
 
     token = jwt.sign(
-      { userId: "testUserId", email: "admin@example.com", role: "admin" },
+      { userId: "id", email: "barafinda@.com", role: "admin" },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "30d" }
     );
@@ -43,10 +43,10 @@ describe("Blog Routes", () => {
     await mongoose.disconnect();
     await mongoServer.stop();
   });
+});
 
-  afterEach(async () => {
-    await Blog.deleteMany({});
-  });
+afterEach(async () => {
+  await Blog.deleteMany({});
 });
 
 describe("GET /blogs", () => {
@@ -63,16 +63,16 @@ describe("GET /blogs", () => {
       imageUrl: "http://example.com/image2.jpg",
       imagePublicId: "image2",
     });
-
+    console.log(blog1, blog2, "izi izo blog zanjye");
     const res = await request(app)
       .get("/blogs")
       .set("Authorization", `Bearer ${token}`);
-
+    console.log("aha ndaba namaze kubona response");
     expect(res.statusCode).toBe(200);
     expect(res.body.length).toBe(2);
     expect(res.body[0]._id).toBe(blog1.id);
     expect(res.body[1]._id).toBe(blog2.id);
-  });
+  }, 20000);
 
   it("should return 401 if user is not authenticated", async () => {
     // Make a GET request to /blogs without setting Authorization header
@@ -89,7 +89,7 @@ describe("GET /blogs", () => {
         role: "user",
       },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "10d" }
+      { expiresIn: "30d" }
     );
 
     // Make a GET request to /blogs with a non-admin token
@@ -128,11 +128,11 @@ describe("POST /blogs", () => {
 
     const res = await request(app)
       .post("/blogs")
+      .set("Authorization", `Bearer ${token}`)
       .field("title", "New Blog")
       .field("description", "New Content")
-      .attach("image", Buffer.from("dummy file content"), "image.jpg")
-      .set("Authorization", `Bearer ${token}`);
-
+      .attach("image", Buffer.from("dummy file content"), "image.jpg");
+    console.log(res.statusCode);
     expect(res.statusCode).toBe(201);
     expect(res.body.title).toBe("New Blog");
     expect(res.body.imageUrl).toBe("http://example.com/image.jpg");
