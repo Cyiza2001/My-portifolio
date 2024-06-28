@@ -72,7 +72,7 @@ describe("GET /blogs", () => {
     expect(res.body.length).toBe(2);
     expect(res.body[0]._id).toBe(blog1.id);
     expect(res.body[1]._id).toBe(blog2.id);
-  }, 20000);
+  }, 12000);
 
   it("should return 401 if user is not authenticated", async () => {
     // Make a GET request to /blogs without setting Authorization header
